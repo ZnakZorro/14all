@@ -1,0 +1,32 @@
+{
+	"name": "Taras",
+	"short_name": "Taras",
+	"start_url": "index.html",
+	"display": "fullscreen",
+	"background_color": "#006622",
+	"theme_color": "#448800", 
+	"description": "Tray Taras web ",
+	"icons": [
+		{
+			"src": "3d-32.png",
+			"sizes": "32x32"
+		},
+		{
+			"src": "3d-128.png",
+			"sizes": "128x128"
+		},
+		{
+			"src": "3d-144.png",
+			"sizes": "144x144"
+		},
+		{
+			"src": "3d-512.png",
+			"sizes": "512x512"
+		}
+	],
+	"screenshots": [{
+		"src": "3d-512.png",
+		"sizes": "512x512",
+		"type": "image/png"
+	}]
+}
