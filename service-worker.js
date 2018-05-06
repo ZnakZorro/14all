@@ -17,10 +17,10 @@ const PRECACHE_URLS = [
 	"models/altanka.dae",
 	"models/Skrzynia.dae",
 	"img/3d.png",
-	"img/3d3d-32.png",
-	"img/3d3d-128.png",
-	"img/3d3d-144.png",
-	"img/3d3d-512.png"
+	"img/3d-32.png",
+	"img/3d-128.png",
+	"img/3d-144.png",
+	"img/3d-512.png"
 	
 ];
 
