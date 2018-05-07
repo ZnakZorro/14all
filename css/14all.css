@@ -1,6 +1,14 @@
-body {
-  
+a.btn {
+    width: 25%;
+    max-width: 10rem;
+    text-align: center;
+    padding: 1.33rem;
+    font-size: 1.33rem;
 }
+
+
+
+
 @font-face {
   font-family: "Roboto";
   src: local(Roboto Thin), url("./font/roboto/Roboto-Thin.eot");
@@ -32,9 +40,4 @@ body {
   font-weight: 700; }
 
 
-a.btn {
-  width:25%; 
-  max-width:10rem;
-  text-align:center;
-}
 
