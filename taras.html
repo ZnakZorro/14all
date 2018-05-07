@@ -11,8 +11,6 @@
 			<link rel="icon" sizes="128x128" href="img/3d.png"> 
 			<link rel="shortcut icon" type="image/png" href="img/3d.png"> 
 			<link rel="apple-touch-icon" href="img/3d.png"> 
-
-
 		<style>
 			body {
 				background:#777;
@@ -34,23 +32,18 @@
 				font-size:13px;
 				text-align:center;
 			}
-
-
 		</style>
 		
 <script>
-	//"use strict";
-	//const $=(y)=>document.querySelector(y);
+"use strict";
+const $=(y)=>document.querySelector(y);
 	// DOM READY
 	document.addEventListener('DOMContentLoaded', function() {			
 		if ('serviceWorker' in navigator) {
 		  navigator.serviceWorker.register('./service-worker.js');
 		}
 	});// dom ready
-</script>		
-		
-		
-<script>
+
 function getURLParameter(name) {
 	return decodeURIComponent(
 		(location.search.match(RegExp("[?|&]"+name+'=(.+?)(&|$)'))||[,'Skrzynia'])[1]
@@ -67,18 +60,16 @@ function getURLParameter(name) {
 	<body>
 
 	<div id="nav" style="z-index:99; position:absolute; top:0px; left:80px;background:#444; padding:0.25em; float:left;   color:white; height:auto; width:auto; right:3px;">
-		<a href="./?model=Skrzynia">Skrzynia</a>
-		<a href="./?model=altanka">Altanka</a>
-		<a href="./?model=meble">Meble</a>
-		<a href="./?model=taras">Taras</a>	
-		<a href="./?model=Montesori">Montesori</a>
-		<a href="./?model=Grill">GRILL</a>
-		<a href="./?model=kosiarka">Kosiarka</a>
-		<a href="./?model=580">580</a>
+		<a href="./taras.html?model=Skrzynia">Skrzynia</a>
+		<a href="./taras.html?model=altanka">Altanka</a>
+		<a href="./taras.html?model=meble">Meble</a>
+		<a href="./taras.html?model=taras">Taras</a>	
+		<a href="./taras.html?model=Montesori">Montesori</a>
+		<a href="./taras.html?model=Grill">GRILL</a>
+		<a href="./taras.html?model=kosiarka">Kosiarka</a>
+		<a href="./taras.html?model=580">580</a>
 	</div>
-			
 
-	
 		<div id="container"></div>
 
 		<script src="build/three.js"></script>
@@ -86,8 +77,6 @@ function getURLParameter(name) {
 		<script src="js/controls/OrbitControls.js"></script>
 		<script src="js/Detector.js"></script>
 		<script src="js/libs/stats.min.js"></script>
-
-
 <script>
 var MODEL = getURLParameter('model');
 
@@ -221,4 +210,3 @@ document.addEventListener('DOMContentLoaded', function() {
 		
 	</body>
 </html>
-
