@@ -1,9 +1,9 @@
 {
-	"name": "Taras",
-	"short_name": "Taras",
+	"name": "14ALL",
+	"short_name": "One for ALL",
 	"start_url": "index.html",
 	"display": "fullscreen",
-	"background_color": "#006622",
+	"background_color": "#222222",
 	"theme_color": "#448800", 
 	"description": "Tray Taras web ",
 	"icons": [
