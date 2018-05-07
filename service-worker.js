@@ -4,23 +4,29 @@
  you may not use this file except in compliance with the License.
 */
 
-const PRECACHE = "taras-v1";
+const PRECACHE = "taras-v2";
 const RUNTIME = "runtime";
 const PRECACHE_URLS = [
 	".",
 	"index.html",
-	"build/three.js",
-	"js/loaders/ColladaLoader.js",
-	"js/controls/OrbitControls.js",
-	"js/Detector.js",
-	"js/libs/stats.min.js",
-	"models/altanka.dae",
-	"models/Skrzynia.dae",
-	"img/3d.png",
-	"img/3d-32.png",
-	"img/3d-128.png",
-	"img/3d-144.png",
-	"img/3d-512.png",
+	"./build/three.js",
+	"./js/loaders/ColladaLoader.js",
+	"./js/controls/OrbitControls.js",
+	"./js/Detector.js",
+	"./js/libs/stats.min.js",
+	"./js/14all.js",
+	"./css/14all.css",
+	"./models/altanka.dae",
+	"./models/Skrzynia.dae",
+	"./models/Grill.dae",
+	"./img/3d.png",
+	"./img/3d-32.png",
+	"./img/3d-72.png",
+	"./img/3d-96.png",	
+	"./img/3d-128.png",
+	"./img/3d-144.png",
+	"./img/3d-256.png",
+	"./img/3d-512.png",
 	"https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,900,900i&amp;subset=latin-ext"
 	
 ];
