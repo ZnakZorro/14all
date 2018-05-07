@@ -1,27 +1,45 @@
 {
-	"name": "14ALL",
+	"name": "14all",
 	"short_name": "One for ALL",
 	"start_url": "index.html",
 	"display": "fullscreen",
 	"background_color": "#222222",
-	"theme_color": "#448800", 
+	"theme_color": "#004488", 
 	"description": "Tray Taras web ",
 	"icons": [
 		{
 			"src": "img/3d-32.png",
-			"sizes": "32x32"
+			"sizes": "32x32",
+			"type": "image/png"
+		},{
+			"src": "img/3d-72.png",
+			"sizes": "72x72",
+			"type": "image/png"
+		},{
+			"src": "img/3d-96.png",
+			"sizes": "96x96",
+			"type": "image/png"
 		},
 		{
 			"src": "img/3d-128.png",
-			"sizes": "128x128"
-		},
-		{
+			"sizes": "128x128",
+			"type": "image/png"
+		},{
 			"src": "img/3d-144.png",
-			"sizes": "144x144"
-		},
-		{
+			"sizes": "144x144",
+			"type": "image/png"
+		},{
+			"src": "img/3d-192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},{
+			"src": "img/3d-256.png",
+			"sizes": "256x256",
+			"type": "image/png"
+		},{
 			"src": "img/3d-512.png",
-			"sizes": "512x512"
+			"sizes": "512x512",
+			"type": "image/png"
 		}
 	],
 	"screenshots": [{
