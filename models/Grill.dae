@@ -10135,7 +10135,7 @@
         </geometry>
     </library_geometries>
     <library_materials>
-        <material id="ID5" name="__Stone_Brushed_Khaki_1">
+        <material id="ID5" name="Stone_Brushed_Khaki_1">
             <instance_effect url="#ID6" />
         </material>
         <material id="ID14" name="edge_color2261971330">
@@ -10332,7 +10332,7 @@
     </library_effects>
     <library_images>
         <image id="ID7">
-            <init_from>Grill/__Stone_Brushed_Khaki_1.jpg</init_from>
+            <init_from>Grill/Stone_Brushed_Khaki_1.jpg</init_from>
         </image>
         <image id="ID322">
             <init_from>Grill/Metal_Rough.jpg</init_from>
@@ -10849,4 +10849,3 @@
         <instance_visual_scene url="#ID2" />
     </scene>
 </COLLADA>
- 
