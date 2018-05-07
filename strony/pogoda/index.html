@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<title>Pogoda</title>
+		<link rel="manifest" href="../taras.manifest">
+		<meta charset="utf-8">
+		<!--meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<link rel="shortcut icon" href="../favicon.ico" >
+		<link href="../css/mdb.min.css" rel="stylesheet">
+		<link href="../css/14all.css" rel="stylesheet">
+		<meta name="mobile-web-app-capable" content="yes"> 
+		<link rel="shortcut icon" href="../img/3d-32.png">
+		<link rel="icon" sizes="128x128" href="../img/3d.png"> 
+		<link rel="shortcut icon" type="image/png" href="../img/3d.png"> 
+		<link rel="apple-touch-icon" href="../img/3d.png">
+		<style>
+			#info {display:none;top: 0px;width: 100%;color: #ffffff;padding: 5px;font-family:Monospace;font-size:13px;text-align:center;}
+		</style>
+		
+<script>
+	"use strict";
+	const $=(y)=>document.querySelector(y);
+	// DOM READY
+	document.addEventListener('DOMContentLoaded', function() {			
+		if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('./service-worker.js');
+		}
+	});// dom ready
+	
+	function getURLParameter(name) {
+		return decodeURIComponent(
+			(location.search.match(RegExp("[?|&]"+name+'=(.+?)(&|$)'))||[,null])[1]
+		);
+	}
+</script>
+
+</head>
+
+<body>
+	<div id="info"></div>
+		
+<div class="details flipInY animated" id="YRNO" style="text-align:center; cursor:pointer;"> 
+	<img id="YRNOimg" src="https://www.yr.no/place/Poland/West_Pomerania/Szczecin_D%C4%85bie/avansert_meteogram.png" title="YRNO wykres - refresh" style="text-align:center; cursor:pointer;">
+</div>	
+<div>
+	<h3>pogoda...</h3>
+	<a href="../../"  class="btn btn-primary waves-effect waves-light mini">START</a>
+</div>	
+	
+
+</body>
+
+</html>
+
