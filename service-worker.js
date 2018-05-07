@@ -20,7 +20,8 @@ const PRECACHE_URLS = [
 	"img/3d-32.png",
 	"img/3d-128.png",
 	"img/3d-144.png",
-	"img/3d-512.png"
+	"img/3d-512.png",
+	"https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,900,900i&amp;subset=latin-ext"
 	
 ];
 
