@@ -1,19 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Menu 14all</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<link rel="shortcut icon" href="./favicon.ico" >
-<link href="./css/mdb.min.css" rel="stylesheet">
-<link href="./css/14all.css" rel="stylesheet">
+<html lang="pl">
+	<head>
+		<title>14ALL</title>
+		<link rel="manifest" href="./14all.manifest">
+		<meta charset="utf-8">
+		<!--meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<link rel="shortcut icon" href="./favicon.ico" >
+		<link href="./css/mdb.min.css" rel="stylesheet">
+		<link href="./css/14all.css" rel="stylesheet">
+		<meta name="mobile-web-app-capable" content="yes"> 
+		<link rel="shortcut icon" href="img/3d-32.png">
+		<link rel="icon" sizes="128x128" href="img/3d.png"> 
+		<link rel="shortcut icon" type="image/png" href="img/3d.png"> 
+		<link rel="apple-touch-icon" href="img/3d.png"> 
+
+		<style>
+			#info {
+				/*position: absolute;*/
+				display:none;
+				top: 0px;
+				width: 100%;
+				color: #ffffff;
+				padding: 5px;
+				font-family:Monospace;
+				font-size:13px;
+				text-align:center;
+			}
+		</style>
+		
+<script>
+	"use strict";
+	const $=(y)=>document.querySelector(y);
+	// DOM READY
+	document.addEventListener('DOMContentLoaded', function() {			
+		if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('./service-worker.js');
+		}
+	});// dom ready
+	
+	function getURLParameter(name) {
+		return decodeURIComponent(
+			(location.search.match(RegExp("[?|&]"+name+'=(.+?)(&|$)'))||[,'Skrzynia'])[1]
+		);
+	}
+</script>
+
 </head>
 
 <body>
 
 	<div>
-		<a href="#"  class="btn btn-primary waves-effect waves-light">Primary</a>
+		<a href="./taraas.html"  class="btn btn-primary waves-effect waves-light">TARAS</a>
 		<a href="#"  class="btn btn-default waves-effect waves-light">Default</a>
 		<a href="#"  class="btn btn-secondary waves-effect waves-light">Secondary</a>
 		<a href="#"  class="btn btn-success waves-effect waves-light">Success</a>
