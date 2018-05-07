@@ -32,4 +32,9 @@ body {
   font-weight: 700; }
 
 
-.btn {min-width:31%; max-width:200px;}
+a.btn, .btn {
+  width:31%; 
+  max-width:220px;
+  text-align:center;
+}
+
