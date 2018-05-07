@@ -31,7 +31,7 @@
 	
 	function getURLParameter(name) {
 		return decodeURIComponent(
-			(location.search.match(RegExp("[?|&]"+name+'=(.+?)(&|$)'))||[,'Skrzynia'])[1]
+			(location.search.match(RegExp("[?|&]"+name+'=(.+?)(&|$)'))||[,null])[1]
 		);
 	}
 </script>
@@ -39,8 +39,10 @@
 </head>
 
 <body>
-
+	<div id="info"></div>
+		
 	<div>
+		<h3>apps...</h3>
 		<a href="./taras.html"  class="btn btn-primary waves-effect waves-light">TARAS</a>
 		<a href="#"  class="btn btn-default waves-effect waves-light">Default</a>
 		<a href="#"  class="btn btn-secondary waves-effect waves-light">Secondary</a>
@@ -48,9 +50,17 @@
 		<a href="#"  class="btn btn-info waves-effect waves-light">Info</a>
 		<a href="#"  class="btn btn-warning waves-effect waves-light">Warning</a>
 		<a href="#"  class="btn btn-danger waves-effect waves-light">Danger</a>
+	</div>
+	
 	<div>
-	</div>		
-	<hr />
+		<h3>PWA... _blank</h3>
+		<a href="https://enux.pl/article/en/2018-05-05/pwa-and-http-caching" class="btn btn-primary waves-effect waves-light" target="_blank">pwa-caching</a>
+	</div>	
+			
+	<br /><br /><br />
+	
+	<div>
+		<h3>test</h3>		
 		<button type="button" class="btn btn-primary waves-effect waves-light">Primary</button>
 		<button type="button" class="btn btn-default waves-effect waves-light">Default</button>
 		<button type="button" class="btn btn-secondary waves-effect waves-light">Secondary</button>
