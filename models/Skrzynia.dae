@@ -3685,10 +3685,10 @@
     </library_effects>
     <library_images>
         <image id="ID9">
-            <init_from>Skrzynia/Wood_Board_Cork.jpg</init_from>
+            <init_from>Skrzynia/Drewno.jpg</init_from>
         </image>
         <image id="ID22">
-            <init_from>Skrzynia/Wood_Floor_Light.jpg</init_from>
+            <init_from>Skrzynia/Drewno.jpg</init_from>
         </image>
     </library_images>
     <scene>
