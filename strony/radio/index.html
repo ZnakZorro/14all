@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<title>Radio</title>
+		<link rel="manifest" href="../../taras.manifest">
+		<meta charset="utf-8">
+    <meta name="mobile-web-app-capable" content="yes"> 
+		<!--meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<link rel="shortcut icon" href="../../img/favicon.ico" >
+		<link href="../../css/mdb.min.css" rel="stylesheet">
+		<link href="../../css/14all.css" rel="stylesheet">
+		
+		<link rel="shortcut icon" href="../../img/3d-32.png">
+		<link rel="icon" sizes="128x128" href="../../img/3d.png"> 
+		<link rel="shortcut icon" type="image/png" href="../../img/3d.png"> 
+		<link rel="apple-touch-icon" href="../../img/3d.png">
+		<style>
+			#info {height:2rem;overflow:none; display:block;top: 0px;width: 100%;color: #ffffff;padding: 5px;font-family:Monospace;font-size:13px;text-align:center;}
+		</style>
+<script src="../../js/14all.js"></script>
+<script src="../../js/ajax.js"></script>
+<script>
+	"use strict";
+	const $=(y)=>document.querySelector(y);
+	// DOM READY
+	document.addEventListener('DOMContentLoaded', function() {			
+		if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('../../service-worker.js');
+		}
+	});// dom ready
+	
+	function getURLParameter(name) {
+		return decodeURIComponent(
+			(location.search.match(RegExp("[?|&]"+name+'=(.+?)(&|$)'))||[,null])[1]
+		);
+	}
+  
+  let radioinfo = function(ret){
+    console.log(ret);
+  }
+  
+  function station(nr){
+    let url = "http://192.168.1.104:8888/radio/"+nr;
+    ajx(url,radioinfo);
+  }
+</script>
+
+</head>
+
+<body>
+	<div id="info"></div>
+		
+<div class="flipInX animated" id="radiobuttons"> 
+	<h3>radio...</h3>
+  <!--btn-	btn-	btn btn-	btn-	btn-info	btn-	btn--->
+	<button onclick="station(1)" class="btn btn-default waves-effect waves-light mini">Tok-FM</button>
+	<button onclick="station(2)" class="btn btn-primary waves-effect waves-light mini">RMF Classic</button>
+	<button onclick="station(5)" class="btn btn-secondary waves-effect waves-light mini">Trójka</button>
+	<button onclick="station(8)" class="btn btn-success waves-effect waves-light mini">Szczecin</button>
+	<button onclick="station(20)" class="btn btn-warning waves-effect waves-light mini">Naj</button>
+  <button onclick="station(60)" class="btn btn-danger waves-effect waves-light mini">Crooney</button>
+</div>	
+	
+	
+	<!--a href="../../"  class="btn btn-primary waves-effect waves-light mini">START</a-->
+
+</body>
+
+</html>
