@@ -3,16 +3,14 @@ body, h1, h2, h3, h4, h5, h6 {
     font-weight: 800!important;
 }
 
-a.btn {
+button.btn, a.btn {
     width: 32%;
     max-width: 10rem;
     text-align: center;
     padding: 1.2rem;
     font-size: 1.2rem;
 }
-.btn.mini {padding:0.5rem;} 
-.btn .mini {padding:0.5rem;} 
-.btn > .mini {padding:0.5rem;} 
+.btn.mini {padding:0.5rem 1rem; color:black;} 
 
 
 /*
