@@ -29,8 +29,8 @@
 	});
   
 	var radioinfo = function(ret){
-		console.log('radioinfo=',ret);
-		$('#info').innerHTML = ret;
+		console.log('radioinfo=',JSON.stringify(ret));
+		$('#info').innerHTML = JSON.stringify(ret);
 	}
 
 	function station(nr){
