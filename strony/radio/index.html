@@ -36,7 +36,7 @@
 	function station(nr){
 		let url = "http://192.168.1.104:8888/radio/"+nr;
 		ajx(url,radioinfo);
-		ajxxx('GET,url,radioinfo);
+		ajxx('GET,url,radioinfo);
 		loadXHR(url,radioinfo);
 		getXHR(url,radioinfo);
 	}
@@ -49,7 +49,6 @@
 		
 <div class="flipInX animated" id="radiobuttons"> 
 	<h3>radio...</h3>
-  <!--btn-	btn-	btn btn-	btn-	btn-info	btn-	btn--->
 	<button onclick="station(1)" class="btn btn-default waves-effect waves-light midi">Tok-FM</button>
 	<button onclick="station(2)" class="btn btn-primary waves-effect waves-light midi">RMF Classic</button>
 	<button onclick="station(5)" class="btn btn-secondary waves-effect waves-light midi">Trójka</button>
