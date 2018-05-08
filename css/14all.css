@@ -24,7 +24,11 @@ button.waves-effect, button.waves-light {
     font-size: 1rem;
     display: initial;
 }
-
+#YRNO {
+    overflow-x: auto;
+    height: 325px;
+    margin-top: 10px;
+}
 /*
 @font-face {
   font-family: "Roboto";
