@@ -22,20 +22,11 @@
 <script src="../../js/14all.js"></script>
 <script src="../../js/ajax.js"></script>
 <script>
-	"use strict";
-	const $=(y)=>document.querySelector(y);
-	// DOM READY
 	document.addEventListener('DOMContentLoaded', function() {			
 		if ('serviceWorker' in navigator) {
 		navigator.serviceWorker.register('../../service-worker.js');
 		}
-	});// dom ready
-	
-	function getURLParameter(name) {
-		return decodeURIComponent(
-			(location.search.match(RegExp("[?|&]"+name+'=(.+?)(&|$)'))||[,null])[1]
-		);
-	}
+	});
   
   let radioinfo = function(ret){
     	console.log('radioinfo=',ret);
