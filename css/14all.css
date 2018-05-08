@@ -19,9 +19,13 @@ button.waves-effect, button.waves-light {
 */
 
 .btn.mini {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.25rem;
     color: black!important;
     font-size: 1rem;
+    display: initial;
+}
+.btn.midi {
+    padding: 1rem 0.25rem;    
     display: initial;
 }
 #YRNO {
