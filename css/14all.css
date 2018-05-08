@@ -6,7 +6,10 @@ a.btn {
     font-size: 1.2rem;
 }
 
-
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: Verdana!important;
+    font-weight: 800!important;
+}
 
 @font-face {
   font-family: "Roboto";
