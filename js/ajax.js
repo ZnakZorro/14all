@@ -1,6 +1,7 @@
 console.log('1 ajax.js');
 
 	function loadXHR(url, callback) {
+		console.log('loadXHR===');
 		let xhr=null;
 		if(typeof XMLHttpRequest !== 'undefined') xhr = new XMLHttpRequest();
 		else {
@@ -25,6 +26,7 @@ console.log('1 ajax.js');
 
 
 	function getXHR(url,callback){
+		console.log('getXHR===');
 		console.log('|'+url+'|');
 		let xmlhttp=null;
         if   (window.XMLHttpRequest){xmlhttp = new XMLHttpRequest();}
@@ -47,7 +49,8 @@ console.log('1 ajax.js');
     }	
 	
 	
-function ajx(url,callback){		
+function ajx(url,callback){
+	console.log('ajax===');
 	fetch(url, {
 		method: 'GET',
 		timeout: 15000,
@@ -64,12 +67,13 @@ function ajx(url,callback){
 		if(tx) callback(tx);
 	}).catch(function(err) {
 		console.log(err);
-		showErrorMessage('Ajax radio problem','Problem z wifi - ajx');
+		console.log('Ajax radio problem','Problem z wifi - ajx');
 	});	
 	
 }
 
 	function ajxxx(method,url,callback,params){
+		console.log('ajaxxx===');
 		let api = '';
 		if (params){
 			if (typeof(params) === 'object'){
