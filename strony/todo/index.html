@@ -1,39 +1,72 @@
-<!doctype html>
-<html lang="en" data-framework="es6">
-	<head>
-		<meta charset="utf-8">
-		<title>Vanilla ES6 • TodoMVC</title>
-		<link rel="stylesheet" href="./index.css">
-	</head>
-	<body>
-		<section class="todoapp">
-			<header class="header">
-				
-				<input class="new-todo" placeholder="What needs to be done?" autofocus>
-			</header>
-			<section style="display:none" class="main">
-				<input class="toggle-all" type="checkbox">
-				<label for="toggle-all">Mark all as complete</label>
-				<ul class="todo-list"></ul>
-				<footer class="footer">
-					<span class="todo-count"></span>
-					<div class="filters">
-						<a href="#/" class="selected">All</a>
-						<a href="#/active">Active</a>
-						<a href="#/completed">Completed</a>
-					</div>
-					<button class="clear-completed">Clear completed</button>
-				</footer>
-			</section>
-		</section>
-		<footer class="info" style="display:none;">
-			<p>Double-click to edit a todo</p>
-			<p>Written by <a href="http://twitter.com/lukeed05">Luke Edwards</a></p>
-			<p>Refactored by <a href="https://github.com/xorgy">Aaron Muir Hamilton</a></p>
-			<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+<!DOCTYPE html>
+<html lang="pl" data-framework="es6">
+<head>
+	<title>ToDo</title>
+	<link rel="manifest" href="../../taras.manifest">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="mobile-web-app-capable" content="yes"> 
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="shortcut icon" href="../../img/favicon.ico" >
+
+	<link href="../../css/14all.css" rel="stylesheet">
+	<link rel="stylesheet" href="./index.css">
+
+	<link rel="shortcut icon" href="../../img/3d-32.png">
+	<link rel="icon" sizes="128x128" href="../../img/3d.png"> 
+	<link rel="shortcut icon" type="image/png" href="../../img/3d.png"> 
+	<link rel="apple-touch-icon" href="../../img/3d.png">
+	<style>
+		#info {display:none;top: 0px;width: 100%;color: #ffffff;padding: 5px;font-family:Monospace;font-size:13px;text-align:center;}
+	</style>
+		
+<script>
+	"use strict";
+	const $=(y)=>document.querySelector(y);
+	// DOM READY
+	document.addEventListener('DOMContentLoaded', function() {			
+		if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('../../service-worker.js');
+		}
+	});// dom ready
+	
+	function getURLParameter(name) {
+		return decodeURIComponent(
+			(location.search.match(RegExp("[?|&]"+name+'=(.+?)(&|$)'))||[,null])[1]
+		);
+	}
+</script>
+</head>
+	
+<body>
+<section class="todoapp">
+	<header class="header">
+
+		<input class="new-todo" placeholder="What needs to be done?" autofocus>
+	</header>
+	<section style="display:none" class="main">
+		<input class="toggle-all" type="checkbox">
+		<label for="toggle-all">Mark all as complete</label>
+		<ul class="todo-list"></ul>
+		<footer class="footer">
+			<span class="todo-count"></span>
+			<div class="filters">
+				<a href="#/" class="selected">All</a>
+				<a href="#/active">Active</a>
+				<a href="#/completed">Completed</a>
+			</div>
+			<button class="clear-completed">Clear completed</button>
 		</footer>
-		<script src="./bundle.js"></script>
-		<script src="./base.js"></script>
-		<link rel="./stylesheet" href="base.css">
-	</body>
+	</section>
+</section>
+<footer class="info" style="display:none;">
+	<p>Double-click to edit a todo</p>
+	<p>Written by <a href="http://twitter.com/lukeed05">Luke Edwards</a></p>
+	<p>Refactored by <a href="https://github.com/xorgy">Aaron Muir Hamilton</a></p>
+	<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+</footer>
+<script src="./bundle.js"></script>
+<script src="./base.js"></script>
+<link rel="./stylesheet" href="base.css">
+</body>
 </html>
