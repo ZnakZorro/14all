@@ -4,7 +4,7 @@
  you may not use this file except in compliance with the License.
 */
 
-const PRECACHE = "taras-v3";
+const PRECACHE = "taras-v4";
 const RUNTIME = "runtime";
 const PRECACHE_URLS = [
 	".",
@@ -15,7 +15,9 @@ const PRECACHE_URLS = [
 	"./js/Detector.js",
 	"./js/libs/stats.min.js",
 	"./js/14all.js",
+	"./js/ajax.js",
 	"./css/14all.css",
+	"./css/mdb.min.css",
 	"./models/altanka.dae",
 	"./models/Skrzynia.dae",
 	"./models/Grill.dae",
