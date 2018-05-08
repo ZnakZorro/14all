@@ -10,7 +10,7 @@ body, h1, h2, h3, h4, h5, h6 {
     font-family: Verdana!important;
     font-weight: 800!important;
 }
-
+/*
 @font-face {
   font-family: "Roboto";
   src: local(Roboto Thin), url("./font/roboto/Roboto-Thin.eot");
@@ -40,6 +40,13 @@ body, h1, h2, h3, h4, h5, h6 {
   src: url("./font/roboto/Roboto-Bold.eot");
   src: url("./font/roboto/Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("./font/roboto/Roboto-Bold.woff2") format("woff2"), url("./font/roboto/Roboto-Bold.woff") format("woff"), url("./font/roboto/Roboto-Bold.ttf") format("truetype");
   font-weight: 700; }
+*/
 
+/*Laptopy*/
+@media screen and (min-width: 1400px){
+}
 
+/*smartphone*/
+@media screen and (max-width: 360px){
+}
 
