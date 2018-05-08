@@ -10,7 +10,9 @@ button.btn, a.btn {
     padding: 1.2rem;
     font-size: 1.2rem;
 }
-
+button.waves-effect, button.waves-light {
+     display: inline-block; 
+}
 .btn.mini {
     padding: 0.5rem 1rem;
     color: black!important;
