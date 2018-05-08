@@ -25,8 +25,7 @@ button.waves-effect, button.waves-light {
     display: initial;
 }
 .btn.midi {
-    padding: 1rem 0.25rem;    
-    display: initial;
+    padding: 0.75rem 0.25rem;    
 }
 #YRNO {
     overflow-x: auto;
