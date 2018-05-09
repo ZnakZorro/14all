@@ -4,7 +4,7 @@
  you may not use this file except in compliance with the License.
 */
 
-const PRECACHE = "taras-v5";
+const PRECACHE = "taras-v6";
 const RUNTIME = "runtime";
 const PRECACHE_URLS = [
 	".",
