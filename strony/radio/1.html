@@ -3,9 +3,10 @@
 <div id="info"></div>
 <script>
   
-window.popup = window.open('http://zszczech.zut.edu.pl/cdn/sekundy.php');  
+
   
 function xfetch(...args) {
+  window.popup = window.open('http://zszczech.zut.edu.pl/cdn/sekundy.php');  
   // tell the proxy to make the request
   const ms = new MessageChannel
   popup.postMessage(args, '*', [ms.port1])
