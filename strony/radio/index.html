@@ -35,7 +35,7 @@
 	}
 
 	function station(nr,app){
-		let url = "http://192.168.1.104:8888/radio/"+nr;
+		let url = "//192.168.1.104:8888/radio/"+nr;
 		if(app===1) ajx(url,radioinfo);
 		if(app===2) ajxxx('GET',url,radioinfo);
 		if(app===3) loadXHR(url,radioinfo);
@@ -74,8 +74,8 @@
 </div>
 
 	
-	<iframe src="http://192.168.1.104:8888/"></iframe>	
-	<iframe src="http://82.145.73.181:8888/"></iframe>	
+	<iframe src="//192.168.1.104:8888/"></iframe>	
+	<iframe src="//82.145.73.181:8888/"></iframe>	
 	
 	
 
