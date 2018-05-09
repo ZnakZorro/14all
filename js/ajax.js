@@ -1,5 +1,9 @@
 console.log('1 ajax.js');
 
+function showErrorMessage(err){
+	$('#info').innerHTML = err;	
+}
+
 	function loadXHR(url, callback) {
 		console.log('loadXHR===');
 		let xhr=null;
