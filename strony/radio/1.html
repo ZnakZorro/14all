@@ -6,7 +6,7 @@
 
   
 function xfetch(...args) {
-  window.popup = window.open('http://zszczech.zut.edu.pl/cdn/sekundy.php');  
+  window.popup = window.open('http://zszczech.zut.edu.pl/cdn/sekundy2.php');  
   // tell the proxy to make the request
   const ms = new MessageChannel();
   popup.postMessage(args, '*', [ms.port1])
@@ -36,7 +36,7 @@ function xfetch(...args) {
   })
 }
 
-xfetch('http://zszczech.zut.edu.pl/cdn/sekundy.php')
+xfetch('http://zszczech.zut.edu.pl/cdn/sekundy2.php')
   .then(res => res.text())
   .then(console.log)
   
