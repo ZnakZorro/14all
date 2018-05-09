@@ -8,7 +8,7 @@
 function xfetch(...args) {
   window.popup = window.open('http://zszczech.zut.edu.pl/cdn/sekundy.php');  
   // tell the proxy to make the request
-  const ms = new MessageChannel
+  const ms = new MessageChannel();
   popup.postMessage(args, '*', [ms.port1])
 
   // Resolves when the headers comes
