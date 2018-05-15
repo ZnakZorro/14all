@@ -14,14 +14,6 @@ button.btn, a.btn {
     width: initial;
     max-width: initial;
 }
-/*
-a.waves-effect, a.waves-light,
-button.waves-effect, button.waves-light {
-    display: inline-block;
-    display: initial;
-}
-*/
-
 .btn.mini {
     padding: 0.5rem;
     color: black!important;
