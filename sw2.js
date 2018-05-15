@@ -1,6 +1,6 @@
 "use strict";
-const PRECACHE = 'pliki_foto-v2';
-const RUNTIME  = 'pwabuilder-offline2';
+const PRECACHE = 'pre_14all_1';
+const RUNTIME  = 'off_14all_1';
 const PRECACHE_URLS = [
 	"./build/three.js",
 	"./js/loaders/ColladaLoader.js",
