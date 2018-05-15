@@ -12,6 +12,7 @@ button.btn, a.btn {
     white-space: nowrap;
     float:left;
 }
+a.btn {font-size:1.19rem;}
 .var {
     width: initial;
     max-width: initial;
