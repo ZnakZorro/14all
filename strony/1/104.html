@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8">
+
+</head>
+<body>
+		<div id="info" class="col2"></div>
+<script>
+var domain = 'http://192.168.1.104:8888';
+var myPopup = window.open(domain + '/w.html','myWindow');
+setInterval(function(){
+var czas = (new Date()).toLocaleString();
+	var message = 'czas: ' + czas;
+	console.log('blog.local:  sending message:  ' + message);
+	myPopup.postMessage(message,domain); //send the message and target URI
+},3000);
+</script>		
+		
+		
+</body>
+</html>
