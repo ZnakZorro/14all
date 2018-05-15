@@ -7,8 +7,6 @@
 const PRECACHE = "taras-v6";
 const RUNTIME = "runtime";
 const PRECACHE_URLS = [
-	".",
-	"index.html",
 	"./build/three.js",
 	"./js/loaders/ColladaLoader.js",
 	"./js/controls/OrbitControls.js",
