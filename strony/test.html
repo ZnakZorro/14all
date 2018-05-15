@@ -3,11 +3,13 @@
 <script>
 //https://stackoverflow.com/questions/4032104/http-ajax-request-via-https-page
 window.popup = window.open('proxy.html');
+  console.log(window.popup)
 
 function xfetch(...args) {
   // tell the proxy to make the request
-  const ms = new MessageChannel
-  popup.postMessage(args, '*', [ms.port1])
+  const ms = new MessageChannel;
+  console.log(ms);
+  window.popup.postMessage(args, '*', [ms.port1]);
 
   // Resolves when the headers comes
   return new Promise((rs, rj) => {
