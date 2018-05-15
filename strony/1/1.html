@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8">
+
+		
+	
+	
+	
+</head>
+<body>
+		<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+		
+		
+		<div id="info" class="col2"></div>
+		<div id="content" class="col2"></div>
+
+<script>
+//create popup window
+var domain = 'http://zszczech.zut.edu.pl';
+var myPopup = window.open(domain + '/w.html','myWindow');
+
+//periodical message sender
+setInterval(function(){
+var czas = (new Date()).toLocaleString();
+	//var message = 'Hello!  The time is: ' + (new Date().getTime());
+	var message = 'czas: ' + czas;
+	console.log('blog.local:  sending message:  ' + message);
+	myPopup.postMessage(message,domain); //send the message and target URI
+},3000);
+
+//listen to holla back
+//window.addEventListener('message',function(event) {
+	//if(event.origin !== 'http://zszczech.zut.edu.pl') return;
+	//console.log('received response:  ',event.data);
+//},false);
+
+</script>		
+		
+		
+</body>
+</html>
