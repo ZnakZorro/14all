@@ -2,21 +2,28 @@
 const PRECACHE = 'pliki_foto-v2';
 const RUNTIME  = 'pwabuilder-offline2';
 const PRECACHE_URLS = [
-	'.',
-	'index.php',
-	'offline.html',
-	'galeria.css',
-	'galeria.js',
-	'img/loading.gif',
-	'img/play-pause.svg',
-	'js/jquery.js',
-	'css/blueimp-gallery.css',
-	'css/blueimp-gallery-indicator.css',
-	'js/blueimp-helper.js',
-	'js/blueimp-gallery.js',
-	'js/blueimp-gallery-fullscreen.js',
-	'js/blueimp-gallery-indicator.js',
-	'js/jquery.blueimp-gallery.js'
+	"./build/three.js",
+	"./js/loaders/ColladaLoader.js",
+	"./js/controls/OrbitControls.js",
+	"./js/Detector.js",
+	"./js/libs/stats.min.js",
+	"./js/14all.js",
+	"./js/ajax.js",
+	"./css/14all.css",
+	"./css/mdb.min.css",
+	"./models/altanka.dae",
+	"./models/Skrzynia.dae",
+	"./models/Grill.dae",
+	"./img/3d.png",
+	"./img/3d-32.png",
+	"./img/3d-72.png",
+	"./img/3d-96.png",	
+	"./img/3d-128.png",
+	"./img/3d-144.png",
+	"./img/3d-256.png",
+	"./img/3d-512.png",
+	"https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,900,900i&amp;subset=latin-ext"
+	
 ];
 self.addEventListener('install', event => {
   event.waitUntil(
