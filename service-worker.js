@@ -4,8 +4,8 @@
  you may not use this file except in compliance with the License.
 */
 
-const PRECACHE = "taras-v6";
-const RUNTIME = "runtime";
+const PRECACHE = "taras-v7";
+const RUNTIME = "runtime-v1";
 const PRECACHE_URLS = [
 	"./build/three.js",
 	"./js/loaders/ColladaLoader.js",
