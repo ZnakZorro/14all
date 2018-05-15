@@ -10,6 +10,10 @@ button.btn, a.btn {
     padding: 1.2rem;
     font-size: 1.2rem;
 }
+.var {
+    width: initial;
+    max-width: initial;
+}
 /*
 a.waves-effect, a.waves-light,
 button.waves-effect, button.waves-light {
