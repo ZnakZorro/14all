@@ -6,6 +6,7 @@ window.popup = window.open('proxy.html');
   console.log(window.popup)
 
 function xfetch(...args) {
+  console.log(args);
   // tell the proxy to make the request
   const ms = new MessageChannel;
   console.log(ms);
