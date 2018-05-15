@@ -2,13 +2,15 @@ body, h1, h2, h3, h4, h5, h6 {
     font-family: Verdana!important;
     font-weight: 300!important;
 }
-
+div {display:block; width:100%; float:left;}
 button.btn, a.btn {
     width: 32%;
     max-width: 10rem;
     text-align: center;
     padding: 1.2rem;
     font-size: 1.2rem;
+    white-space: nowrap;
+    float:left;
 }
 .var {
     width: initial;
