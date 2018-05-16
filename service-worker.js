@@ -1,5 +1,5 @@
 "use strict";
-const cachNR = 6;
+const cachNR = 7;
 var PRECACHE = 'pre_14all_'+(cachNR+0);
 var RUNTIME  = 'off_14all_'+(cachNR+1);
 //console.log(PRECACHE,RUNTIME);
