@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<title>160</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<link rel="shortcut icon" href="../../favicon.ico" >
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+		<link href="../../css/mdb.min.css" rel="stylesheet">
+		<link href="../../css/14all.css" rel="stylesheet">
+		<meta name="mobile-web-app-capable" content="yes"> 
+		<link rel="shortcut icon" href="../../img/3d-32.png">
+		<link rel="icon" sizes="128x128" href="../../img/3d.png"> 
+		<link rel="shortcut icon" type="image/png" href="../../img/3d.png"> 
+		<link rel="apple-touch-icon" href="../../img/3d.png">
+		<style>
+			#info {display:none;top: 0px;width: 100%;color: #ffffff;padding: 5px;font-family:Monospace;font-size:13px;text-align:center;}
+		</style>
+		<script src="../../js/14all.js"></script>
+		<script src="../../js/ajax.js"></script>
+</head>
+<body>
+	<div id="info" class="col2" style="display:block; height:3rem;"></div>
+	
+	<div>
+		<button class="btn mini btn-info" onClick='radio("radio","info")'>Info</button> 
+		<button class="btn mini btn-warning" onClick='radio("radio","1")'>TOK-FM</button> 
+		<button class="btn mini" onClick='radio("radio","2")'>RMF Classic</button> 
+		<button class="btn mini" onClick='radio("radio","5")'>Trójka</button> 
+		<button class="btn mini" onClick='radio("radio","8")'>Szczecin</button> 
+	</div>
+	<div>
+		<button class="btn mini" onClick='radio("vol","50")'>Vol 50%</button> 
+		<button class="btn mini" onClick='radio("vol","80")'>Vol 80%</button> 
+		<button class="btn mini" onClick='radio("vol","90")'>Vol 90%</button> 
+	</div>
+	<div>
+		<button class="btn mini" onClick='radio("folder","radio")'>Radio</button> 
+		<button class="btn mini" onClick='radio("folder","muzyka")'>Muzyka</button> 
+		<button class="btn mini" onClick='radio("folder","jazz")'>Jazz</button> 
+		<button class="btn mini" onClick='radio("folder","aktualne")'>Aktualne</button> 
+		
+	</div>
+	<a href="../../"  class="btn btn-info waves-effect waves-light mini">Start</a>
+  
+	<iframe src="" id="myWindow" name="myWindow"></iframe>
+  
+<script>
+var domain = 'https://192.168.31.160:8080';
+document.getElementById('myWindow').src = domain + '/proxy.html';
+
+
+	
+function radio(param,val){
+  var mess='radio/info';
+	if(param) mess='/'+param;
+	if(val)  mess+='/'+val;
+	
+  document.getElementById('myWindow').src = mess;
+	
+}
+</script>		
+		
+		
+</body>
+</html>
