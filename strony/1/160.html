@@ -28,7 +28,9 @@ function test(){
 	
 function radio(param,val){
 	document.getElementById('info').innerHTML = 'param='+param+' val='+val;
-	var message = '{param:' + param + ', val:'+val+'}';
+	var message = '{"param":"' + param + '", "val":"'+val+'"}';
+	var obj = JSON.parse(message);
+	console.log(obj)
 	myPopup.postMessage(message,domain);
 }
 </script>		
