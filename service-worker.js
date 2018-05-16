@@ -1,6 +1,6 @@
 "use strict";
-const PRECACHE = 'pre_14all_3';
-const RUNTIME  = 'off_14all_4';
+const PRECACHE = 'pre_14all_4';
+const RUNTIME  = 'off_14all_5';
 const PRECACHE_URLS = [
 	"./build/three.js",
 	"./js/loaders/ColladaLoader.js",
