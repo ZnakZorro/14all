@@ -3,15 +3,7 @@ body, h1, h2, h3, h4, h5, h6 {
     font-weight: 300!important;
 }
 div {display:block; width:100%; float:left;}
-button.btn, a.btn {
-    width: 32%;
-    max-width: 10rem;
-    text-align: center;
-    padding: 1.2rem;
-    font-size: 1.2rem;
-    white-space: nowrap;
-    float:left;
-}
+
 a.btn {font-size:1.19rem;}
 .var {
     width: initial;
@@ -30,6 +22,15 @@ a.btn {font-size:1.19rem;}
     overflow-x: auto;
     height: 325px;
     margin-top: 10px;
+}
+button.btn, a.btn {
+    width: 32%;
+    max-width: 10rem;
+    text-align: center;
+    padding: 1.2rem;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    float:left;
 }
 /*
 @font-face {
