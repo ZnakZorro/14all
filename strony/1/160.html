@@ -2,19 +2,35 @@
 <html lang="pl">
 <head>
 	<meta charset="utf-8">
-
+	<script src="../../js/ajax.js"></script>
 </head>
 <body>
-		<div id="info" class="col2"></div>
+	<div id="info" class="col2"></div>
+	<div>
+		<button onClick='radio("play","1")'>TOK-FM</button> 
+		<button onClick='radio("play","2")'>RMF Classic</button> 
+		<button onClick='radio("play","5")'>Trójka</button> 
+				 
+	</div>
 <script>
 var domain = 'http://192.168.31.160:8888';
 var myPopup = window.open(domain + '/proxy.html','myWindow');
-setInterval(function(){
-var czas = (new Date()).toLocaleString();
-	var message = 'czas: ' + czas;
-	console.log('blog.local:  sending message:  ' + message);
-	myPopup.postMessage(message,domain); //send the message and target URI
-},3000);
+
+function test(){
+	setInterval(function(){
+		var czas = (new Date()).toLocaleString();
+		var message = 'czas: ' + czas;
+		console.log('blog.local:  sending message:  ' + message);
+		
+		myPopup.postMessage(message,domain); //send the message and target URI
+	},3000);
+}
+	
+function radio(param,val){
+	document.getElementById('info').innerHTML = 'param='+param+' val='+val);
+	var message = '{param:' + param + ', val:'+val+'}';
+	myPopup.postMessage(message,domain);
+}
 </script>		
 		
 		
