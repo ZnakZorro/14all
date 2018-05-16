@@ -51,17 +51,14 @@
 <script>
 var domain = 'https://192.168.31.160:8080';
 document.getElementById('myWindow').src = domain + '/radio/';
-
-
 	
 function radio(param,val){
   var mess='/radio/info';
-	if(param) mess  = '/'+param+'/';
-	if(val)   mess+ = val;
-	
+	if (param) mess  = '/'+param+'/';
+	if (val)   mess += val;
   document.getElementById('myWindow').src = domain+mess;
-	
 }
+	
 </script>		
 		
 		
