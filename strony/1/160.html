@@ -2,17 +2,24 @@
 <html lang="pl">
 <head>
 	<meta charset="utf-8">
+	<link href="../../css/mdb.min.css" rel="stylesheet">
+	<link href="../../css/14all.css" rel="stylesheet">
+	<style>
+	</style>
 	<script src="../../js/ajax.js"></script>
 </head>
 <body>
-	<div id="info" class="col2"></div>
+	<div id="info" class="col2" style="display:block; height:3rem;"></div>
 	<div>
-		<button onClick='radio("radio","info")'>Info</button> 
+		<button class="btn" onClick='radio("radio","info")'>Info</button> 
 		<button onClick='radio("radio","1")'>TOK-FM</button> 
 		<button onClick='radio("radio","2")'>RMF Classic</button> 
 		<button onClick='radio("radio","5")'>Trójka</button> 
 		<button onClick='radio("radio","8")'>Szczecin</button> 
-				 
+		<hr />
+		<button onClick='radio("vol","50")'>Vol 50%</button> 
+		<button onClick='radio("vol","80")'>Vol 80%</button> 
+		<button onClick='radio("vol","90")'>Vol 90%</button> 
 	</div>
 <script>
 var domain = 'http://192.168.31.160:8888';
