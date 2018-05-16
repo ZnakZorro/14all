@@ -53,11 +53,11 @@ document.getElementById('myWindow').src = domain + '/proxy.html';
 
 	
 function radio(param,val){
-  var mess='radio/info';
+  var mess='/radio/info';
 	if(param) mess='/'+param;
 	if(val)  mess+='/'+val;
 	
-  document.getElementById('myWindow').src = mess;
+  document.getElementById('myWindow').src = domain+mess;
 	
 }
 </script>		
