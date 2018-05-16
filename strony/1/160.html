@@ -7,7 +7,7 @@
 <body>
 	<div id="info" class="col2"></div>
 	<div>
-		<button onClick='radio("info","1")'>Info</button> 
+		<button onClick='radio("info")'>Info</button> 
 		<button onClick='radio("radio","1")'>TOK-FM</button> 
 		<button onClick='radio("radio","2")'>RMF Classic</button> 
 		<button onClick='radio("radio","5")'>Trójka</button> 
@@ -28,9 +28,13 @@ function test(){
 }
 	
 function radio(param,val){
-	document.getElementById('info').innerHTML = 'param='+param+' val='+val;
-	var message = '{"param":"' + param + '", "val":"'+val+'"}';
-	var obj = JSON.parse(message);
+	var obj = {};
+	if(param) obj['param'] = param;
+	if(val)  obj['val']    = val;
+	var message = JSON.stringify(obj);
+	document.getElementById('info').innerHTML = message;
+	//var message = '{"param":"' + param + '", "val":"'+val+'"}';
+	//var obj = JSON.parse(message);
 	console.log(obj)
 	myPopup.postMessage(message,domain);
 }
