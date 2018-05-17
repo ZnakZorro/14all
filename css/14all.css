@@ -1,3 +1,4 @@
+body {display:flex;}
 body, h1, h2, h3, h4, h5, h6 {
     font-family: Verdana!important;
     font-weight: 300!important;
@@ -38,6 +39,7 @@ button.btn, a.btn {
     width: 100%;
     max-width: 876px;
     height: 100%;
+    padding:0 0.5rem;
     overflow: hidden;
     position: relative;
     background: url(../img/back/Motyl1.jpg) top center no-repeat;
@@ -56,26 +58,17 @@ button.btn, a.btn {
     line-height: 47px;
     border-radius: 50%;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, .75);
-}
-.maska {
-
     cursor: pointer;
-  
-    border-radius: 50%;
-    position: absolute;
-    -webkit-transition: all .1s ease-in-out 0s;
-    transition: all .1s ease-in-out 0s cursor:pointer;
-    background: #136;
+    background: #eee;
+}
 
-   
+.maska {
     width: 74%;
     height: 74%;
-    z-index: 99;
     text-align: center;
-    margin: 11%;
-   
-    
+    margin: 11%;    
 }
+
 .icon-home {background-image: url(home.svg);}
 /*
 @font-face {
