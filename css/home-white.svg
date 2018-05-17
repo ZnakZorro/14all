@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2017 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="506px" height="508px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 506 507"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str2 {stroke:white;stroke-width:30}
+    .str1 {stroke:white;stroke-width:25}
+    .str0 {stroke:white;stroke-width:35}
+    .fil0 {fill:none}
+   ]]>
+  </style>
+ </defs>
+ <g id="Warstwa_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2366484576016">
+   <line class="fil0 str0" x1="363" y1="40" x2="362" y2= "108" />
+   <polygon class="fil0 str1" points="64,199 441,199 441,495 64,495 "/>
+   <polygon class="fil0 str1" points="112,244 245,244 245,359 112,359 "/>
+   <polygon class="fil0 str1" points="303,302 387,302 387,484 303,484 "/>
+   <polygon class="fil0 str2" points="253,19 464,190 42,196 "/>
+  </g>
+ </g>
+</svg>
