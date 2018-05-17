@@ -86,7 +86,7 @@ button.btn, a.btn {
     cursor: pointer;
     background: #888;
     float: left;
-    margin: 8px;
+    margin: 8px 4px;
 }
 .nava:focus {background:#444;}
 
