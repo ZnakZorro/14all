@@ -61,10 +61,10 @@ button.btn, a.btn {
 }
 
 .maska {
-    width: 74%;
-    height: 74%;
+    width: 66%;
+    height: 66%;
     text-align: center;
-    margin: 11%;    
+    margin: 13% 18%;
 }
 
 .icon-home {background-image: url(home.svg);}
