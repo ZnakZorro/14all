@@ -83,9 +83,7 @@ button.btn, a.btn {
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
 }
 .nav {    
-    position: absolute;
-    top:0;
-    left:0;
+    display:block;
     width:100%;
     min-height:60px;
 }
