@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 	<head>
-		<title>160</title>
+		<title>radio</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -66,10 +66,18 @@
 		
 	</div>
 	<a href="../../"  class="btn btn-info waves-effect waves-light mini">Start</a>
+	<div>
+		<input type="text" id="radioip" onChange="ZmianaIP(this)" value='https://192.168.31.160:8080'/>
+	</div>
 </div>  
 	
   
 <script>
+function ZmianaIP(ten){
+	console.log(ten.value);
+	domain = ten.value;
+	console.log(domain);
+}
 var domain = 'https://192.168.31.160:8080';
 document.getElementById('myWindow').src = domain + '/radio/';
 	
