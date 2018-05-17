@@ -7,6 +7,7 @@
 const PRECACHE = "taras-v7";
 const RUNTIME = "runtime-v1";
 const PRECACHE_URLS = [
+	"./",
 	"./build/three.js",
 	"./js/loaders/ColladaLoader.js",
 	"./js/controls/OrbitControls.js",
@@ -14,8 +15,13 @@ const PRECACHE_URLS = [
 	"./js/libs/stats.min.js",
 	"./js/14all.js",
 	"./js/ajax.js",
+	"./css/home.svg",
 	"./css/14all.css",
 	"./css/mdb.min.css",
+	"/14all/strony/todo/index.css",
+	"/14all/strony/todo/index.html",
+	"/14all/strony/todo/bundle.js",
+	"/14all/strony/todo/base.js",
 	"./models/altanka.dae",
 	"./models/Skrzynia.dae",
 	"./models/Grill.dae",
