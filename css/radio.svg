@@ -10,8 +10,7 @@ viewBox="0 0 538 559"
     .str0 {stroke:white;stroke-width:25}
     .str1 {stroke:white;stroke-width:16}
     .fil0 {fill:none}
-    .fil2 {fill:#333333}
-    .fil1 {fill:#E6E6E6}
+    .fil1 {fill:white}
    ]]>
   </style>
  </defs>
@@ -19,7 +18,7 @@ viewBox="0 0 538 559"
   <metadata id="CorelCorpID_0Corel-Layer"/>
   <rect class="fil0 str0" x="13" y="111" width="513" height="436" rx="57" ry="154"/>
   <rect class="fil0 str1" x="11" y="8" width="513" height="96" rx="57" ry="34"/>
-  <rect class="fil1 str0" x="94" y="188" width="209" height="177" rx="23" ry="63"/>
-  <circle class="fil2" cx="405" cy="429" r="39"/>
+  <rect class="fil0 str0" x="94" y="188" width="209" height="177" rx="23" ry="63"/>
+  <circle class="fil1" cx="405" cy="429" r="39"/>
  </g>
 </svg>
