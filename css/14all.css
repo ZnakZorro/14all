@@ -47,17 +47,15 @@ button.btn, a.btn {
 }
 
 .nava {
+    position: absolute;
     z-index: 101;
-    top: 22px;
-    right: 15px;
+    top: 8px;
+    right: 8px;
     width: 45px;
-    bottom: 15px;
     height: 45px;
     display: block;
-    position: absolute;
-    line-height: 47px;
     border-radius: 50%;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .75);
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .65);
     cursor: pointer;
     background: #eee;
 }
