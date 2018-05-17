@@ -13,6 +13,7 @@ const PRECACHE_URLS = [
 	"./js/ajax.js",
 	"./css/14all.css",
 	"./css/mdb.min.css",
+	"/14all/css/home.svg",
 	"./models/altanka.dae",
 	"./models/Skrzynia.dae",
 	"./models/Grill.dae",
