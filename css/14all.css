@@ -32,6 +32,34 @@ button.btn, a.btn {
     white-space: nowrap;
     float:left;
 }
+
+.nava {
+    z-index: 101;
+    top: 22px;
+    right: 15px;
+    width: 45px;
+    bottom: 15px;
+    height: 45px;
+    display: block;
+    position: absolute;
+    line-height: 47px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .75);
+}
+.maska {
+    z-index: 21;
+    color: #fff;
+    width: inherit;
+    height: inherit;
+    cursor: pointer;
+    font-size: 28px;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    -webkit-transition: all .1s ease-in-out 0s;
+    transition: all .1s ease-in-out 0s cursor:pointer;
+    background: #136;
+}
 /*
 @font-face {
   font-family: "Roboto";
