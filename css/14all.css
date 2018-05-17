@@ -82,12 +82,18 @@ button.btn, a.btn {
     /*background: url(../img/back/Motyl1.jpg) top center no-repeat;*/
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
 }
-
+.nav {    
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    min-height:60px;
+}
 .nava {
     position: absolute;
     z-index: 101;
     top: 8px;
-    right: 8px;
+    left: 8px;
     width: 45px;
     height: 45px;
     display: block;
@@ -104,7 +110,12 @@ button.btn, a.btn {
     text-align: center;
     margin: 13% 18%;
 }
-.active {}
+.active {opacity:0.7}
+.icon-home {background:navy;}
+.icon-pogoda {background:darkgreen;}
+.icon-todo {background:red;}
+.icon-taras {background:gray;}
+
 
 .icon-home {background-image: url(home.svg);}
 /*
