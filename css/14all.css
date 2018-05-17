@@ -71,6 +71,7 @@ button.btn, a.btn {
     transition: all .1s ease-in-out 0s cursor:pointer;
     background: #136;
 }
+.icon-home {background-image: url(home.svg);}
 /*
 @font-face {
   font-family: "Roboto";
