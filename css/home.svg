@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW 2017 -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="512px" height="476px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-viewBox="0 0 508 473"
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="506px" height="508px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 506 507"
  xmlns:xlink="http://www.w3.org/1999/xlink">
  <defs>
   <style type="text/css">
    <![CDATA[
-    .str0 {stroke:#666666;stroke-width:25}
+    .str2 {stroke:white;stroke-width:30}
+    .str1 {stroke:white;stroke-width:25}
+    .str0 {stroke:white;stroke-width:35}
     .fil0 {fill:none}
    ]]>
   </style>
  </defs>
  <g id="Warstwa_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <g id="_2366395083056">
-   <polygon class="fil0 str0" points="71,189 446,189 446,460 71,460 "/>
-   <polygon class="fil0 str0" points="116,234 248,234 248,339 116,339 "/>
-   <polygon class="fil0 str0" points="296,287 379,287 379,453 296,453 "/>
-   <polygon class="fil0 str0" points="248,15 470,174 37,179 "/>
+  <g id="_2366484576016">
+   <line class="fil0 str0" x1="363" y1="40" x2="362" y2= "108" />
+   <polygon class="fil0 str1" points="64,199 441,199 441,495 64,495 "/>
+   <polygon class="fil0 str1" points="112,244 245,244 245,359 112,359 "/>
+   <polygon class="fil0 str1" points="303,302 387,302 387,484 303,484 "/>
+   <polygon class="fil0 str2" points="253,19 464,190 42,196 "/>
   </g>
  </g>
 </svg>
