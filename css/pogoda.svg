@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2017 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="497px" height="497px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 500 500"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:white;stroke-width:25}
+    .fil1 {fill:none}
+    .fil0 {fill:white}
+   ]]>
+  </style>
+ </defs>
+ <g id="Warstwa_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_1853767350560">
+   <circle class="fil0" cx="249" cy="247" r="169"/>
+   <line class="fil1 str0" x1="250" y1="0" x2="251" y2= "500" />
+   <line class="fil1 str0" x1="125" y1="34" x2="375" y2= "466" />
+   <line class="fil1 str0" x1="33" y1="125" x2="467" y2= "375" />
+   <line class="fil1 str0" x1="0" y1="251" x2="500" y2= "250" />
+   <line class="fil1 str0" x1="34" y1="375" x2="466" y2= "125" />
+   <line class="fil1 str0" x1="125" y1="467" x2="375" y2= "33" />
+  </g>
+ </g>
+</svg>
