@@ -10,7 +10,7 @@ function getURLParameter(name) {
 
 document.addEventListener('DOMContentLoaded', function() {
 	let menu14=["home","pogoda","radio","todo","3d","links"];
-	let menu_place = $('nav');
+	let menu_place = $('div.nav');
 	console.log('place=',menu_place);
 	let arrpath = location.pathname.split('/');
 	console.log('arrpath=',arrpath);
