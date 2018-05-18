@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>3D view</title>
+		<link rel="manifest" href="./taras.manifest">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="mobile-web-app-capable" content="yes"> 
+		<link rel="shortcut icon" href="img/3d-32.png">
+			<link rel="icon" sizes="128x128" href="img/3d.png"> 
+			<link rel="shortcut icon" type="image/png" href="img/3d.png"> 
+			<link rel="apple-touch-icon" href="img/3d.png"> 
+		<style>
+			body {
+				background:#777;
+				padding:0;
+				margin:0;
+				overflow:hidden;
+				font:normal 11pt/18pt Verdana;
+			}
+			a {text-decoration:none;color: #ffffff;}
+
+			#info {
+				/*position: absolute;*/
+				display:none;
+				top: 0px;
+				width: 100%;
+				color: #ffffff;
+				padding: 5px;
+				font-family:Monospace;
+				font-size:13px;
+				text-align:center;
+			}
+		</style>
+		
+<script>
+"use strict";
+const $=(y)=>document.querySelector(y);
+	// DOM READY
+	document.addEventListener('DOMContentLoaded', function() {			
+		if ('serviceWorker' in navigator) {
+		  navigator.serviceWorker.register('./service-worker.js');
+		}
+	});// dom ready
+
+function getURLParameter(name) {
+	return decodeURIComponent(
+		(location.search.match(RegExp("[?|&]"+name+'=(.+?)(&|$)'))||[,'Skrzynia'])[1]
+	);
+}
+
+//var uri_enc = encodeURIComponent(uri);
+//var uri_dec = decodeURIComponent(uri_enc);
+//location.hash = "strona"
+
+
+</script>		
+	</head>
+	<body>
+
+	<div id="nav" style="z-index:99; position:absolute; top:0px; left:80px;background:#444; padding:0.25em; float:left;   color:white; height:auto; width:auto; right:3px;">
+		<a href="./">START &nbsp; </a>
+		<a href="./taras.html?model=Skrzynia">Skrzynia</a>
+		<a href="./taras.html?model=altanka">Altanka</a>
+		<a href="./taras.html?model=kosiarka">Kosiarka</a>
+		<a href="./taras.html?model=Grill">GRILL</a>
+		<!--
+		<a href="./taras.html?model=meble">Meble</a>
+		<a href="./taras.html?model=taras">Taras</a>	
+		<a href="./taras.html?model=Montesori">Montesori</a>
+		<a href="./taras.html?model=580">580</a>
+		-->
+	</div>
+
+		<div id="container"></div>
+
+		<script src="build/three.js"></script>
+		<script src="js/loaders/ColladaLoader.js"></script>
+		<script src="js/controls/OrbitControls.js"></script>
+		<script src="js/Detector.js"></script>
+		<script src="js/libs/stats.min.js"></script>
+<script>
+var MODEL = getURLParameter('model');
+
+var taras = null;
+var elcanvas = null;
+var poleWidzenia = 2.75;
+var gridX = 1.25;
+var gridI = 40;
+
+if (MODEL==='altanka')       {poleWidzenia=5.5;   gridX=0; gridI=0;}
+if (MODEL==='580')       {poleWidzenia=30;   gridX=0; gridI=0;}
+
+if (MODEL==='meble')     {poleWidzenia=3.0;   gridX=2.75; gridI=30;}
+if (MODEL==='meble-gray') {poleWidzenia=3.0;   gridX=2.75; gridI=30;}
+if (MODEL==='taras')       {poleWidzenia=10;   gridX=12; gridI=40;}
+if (MODEL==='kosiarka')     {poleWidzenia=1.2;   gridX=0.55; gridI=30;}
+	
+
+//if (MODEL==='skrzynia')   {poleWidzenia=1.5; gridX=1.5; gridI=40;}
+//if (MODEL==='grill')      {poleWidzenia=1.5; gridX=1.5; gridI=40;}
+//if (MODEL==='test')       {poleWidzenia=3;   gridX=2; gridI=10;}
+
+console.log('MODEL=',MODEL,poleWidzenia,gridX,gridI);
+
+
+document.addEventListener('DOMContentLoaded', function() {
+	console.log('dom ready');
+});
+
+
+/****************************************/	
+
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+			var container, stats, clock,controls;
+			var camera, scene, renderer;
+
+			init();
+			animate();
+
+			
+			function init() {
+		
+				container = document.getElementById( 'container' );
+				                 //PerspectiveCamera( fov : Number, aspect : Number, near : Number, far : Number )
+				camera = new THREE.PerspectiveCamera( poleWidzenia, window.innerWidth / window.innerHeight, 0.1, 2000 );
+				camera.position.set( -45, 20, 30 ); 	//camera.position.set( 5, 58, 64 );	//camera.position.set( 15, 10, - 15 );
+				camera.lookAt( new THREE.Vector3( 0, 3, 0 ) );
+				
+				scene = new THREE.Scene();
+				clock = new THREE.Clock();
+				//console.log(clock);
+				
+				// loading manager
+				var loadingManager = new THREE.LoadingManager( function() {
+					scene.add( taras );
+				} );
+
+				
+				
+				// collada
+				var loader = new THREE.ColladaLoader( loadingManager );
+				loader.load( './models/'+MODEL+'.dae', function ( collada ) {
+					taras = collada.scene;
+				} );
+
+				//
+				var ambientLight = new THREE.AmbientLight( 0xffffff, 0.5 );
+				scene.add( ambientLight );
+
+				var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.99 );
+				directionalLight.position.set( 1, 1, -1 ).normalize();
+				scene.add( directionalLight );
+				
+							//var pointLight = new THREE.PointLight( 0xffffff, 0.8 );
+							//camera.add( pointLight );
+							//scene.add( camera );				
+				
+				
+				if (gridI){		
+					var gridHelper = new THREE.GridHelper( gridX, gridI );
+					scene.add( gridHelper );
+				}
+				//
+				renderer = new THREE.WebGLRenderer();
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				container.appendChild( renderer.domElement );
+				
+				//cccccccccccccccccccccccccccccccccccccccccc
+				
+				
+				
+				controls = new THREE.OrbitControls( camera, renderer.domElement );
+				controls.target.set( 0, 0, 0 );
+				controls.autoRotate=true;
+				controls.enablePan=true;
+				
+				controls.update();
+
+				//
+
+				stats = new Stats();
+				container.appendChild( stats.dom );
+				window.addEventListener( 'resize', onWindowResize, false );
+
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+			
+			function animate() {
+				requestAnimationFrame( animate );
+				render();
+				stats.update();
+			}
+			
+			function render() {
+				var delta = clock.getDelta();
+				renderer.render( scene, camera );
+			}			
+		
+		</script>
+		
+		
+	</body>
+</html>
