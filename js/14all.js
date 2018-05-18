@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	let menu_place = $('nav');
 	console.log('place=',menu_place);
 	let arrpath = location.pathname.split('/');
-	let path = arrpath[arrpath.length-1];
+	console.log('arrpath=',arrpath);
+	let path = arrpath[arrpath.length-2];
 	console.log('path=',path);
 	menu14.forEach(function(m){
 		console.log(m);	
