@@ -1,4 +1,5 @@
 "use strict";
+
 const $=(y)=>document.querySelector(y);
 
 function getURLParameter(name) {
@@ -6,4 +7,15 @@ function getURLParameter(name) {
 			(location.search.match(RegExp("[?|&]"+name+'=(.+?)(&|$)'))||[,null])[1]
 		);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+	let menu14=["home","pogoda","radio","todo","3d","links"];
+	let menu_place = $('nav');
+	console.log('place=',menu_place);
+	let path = location.pathname.split('/').pop().pop();
+	console.log('path=',path);
+	menu14.forEach(function(m){
+		console.log(m);	
+	});
+});
 
