@@ -1,22 +1,22 @@
 "use strict";
-const cachNR = 18;
+const cachNR = 19;
 var PRECACHE = 'pre_14all_'+(cachNR+0);
 var RUNTIME  = 'off_14all_'+(cachNR+1);
 //console.log(PRECACHE,RUNTIME);
 const PRECACHE_URLS = [
-	"./build/three.js",
-	"./js/loaders/ColladaLoader.js",
-	"./js/controls/OrbitControls.js",
-	"./js/Detector.js",
-	"./js/libs/stats.min.js",
-	"./js/14all.js",
-	"./js/ajax.js",
-	"./css/14all.css",
-	"./css/mdb.min.css",
+	"/14all/strony/3d/js/build/three.js",
+	"/14all/strony/3d/js/loaders/ColladaLoader.js",
+	"/14all/strony/3d/js/controls/OrbitControls.js",
+	"/14all/strony/3d/js/Detector.js",
+	"/14all/strony/3d/js/libs/stats.min.js",
+	"/14all/js/14all.js",
+	"/14all/js/ajax.js",
+	"/14all/css/14all.css",
+	"/14all/css/mdb.min.css",
 	"/14all/css/home.svg",
-	"./models/altanka.dae",
-	"./models/Skrzynia.dae",
-	"./models/Grill.dae",
+	"/14all/strony/3d/models/altanka.dae",
+	"/14all/strony/3d/models/Skrzynia.dae",
+	"/14all/strony/3d/models/Grill.dae",
 	"./img/3d.png",
 	"./img/3d-32.png",
 	"./img/3d-72.png",
