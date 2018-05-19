@@ -18,6 +18,7 @@ const PRECACHE_URLS = [
 	"/14all/js/14all.js",
 	"/14all/js/ajax.js",
 	"/14all/css/14all.css",
+	"/14all/css/layout.css",
 	"/14all/css/mdb.min.css",
 	"/14all/css/home.svg",
 	"/14all/strony/3d/models/altanka.dae",
