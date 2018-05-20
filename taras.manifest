@@ -3,9 +3,9 @@
 	"short_name": "1 for all",
 	"start_url": "index.html",
 	"display": "fullscreen",
-	"background_color": "#124",
+	"background_color": "#112266",
 	"theme_color": "#004488", 
-	"description": "Tray Taras web ",
+	"description": "Tray PWA web ",
 	"icons": [
 		{
 			"src": "/14all/img/3d-32.png",
