@@ -1,5 +1,5 @@
 "use strict";
-const cachNR = 24;
+const cachNR = 25;
 var PRECACHE = 'pre_14all_'+(cachNR+0);
 var RUNTIME  = 'off_14all_'+(cachNR+1);
 //console.log(PRECACHE,RUNTIME);
@@ -10,6 +10,10 @@ const PRECACHE_URLS = [
 	"/14all/strony/radio/index.html",
 	"/14all/strony/links/index.html",
 	"/14all/strony/todo/index.html",
+	"/14all/strony/todo/index.css",
+	"/14all/strony/todo/bundle.js",
+	"/14all/strony/todo/base.js",
+	"/14all/strony/todo/base.css",
 	"/14all/strony/3d/js/build/three.js",
 	"/14all/strony/3d/js/loaders/ColladaLoader.js",
 	"/14all/strony/3d/js/controls/OrbitControls.js",
