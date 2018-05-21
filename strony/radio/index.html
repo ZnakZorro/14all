@@ -96,15 +96,15 @@ var domain = 'https://192.168.31.160:8080';
 
 function setIP(ip){
 	domain = 'https://'+ip+':8080';
+	console.log('setIP domain=',domain);
 	$('#radioip').value = domain;
-	console.log('domain=',domain);
+	
 }
 function setURL(){
 	//let ip = $('#radioip').value;
 	//console.log('ip=',ip);
-	//domain = 'https://'+ip+':8080';
-	
-	console.log('domain=',domain);
+	domain = $('#radioip').value;
+	console.log('setURL domain=',domain);
 }
 	
 function ZmianaIP(ten){
@@ -125,7 +125,7 @@ function radio(param,val){
 document.addEventListener('DOMContentLoaded', function() {
 	domains.forEach(function(ip){
 		console.log(ip);
-		$('#wyborip').innerHTML += "<button onClick='setIP(\'"+ip+"\')'>'"+ip+"</button>";
+		$('#wyborip').innerHTML += "<button onClick='setIP(\'"+ip+"\')'>"+ip+"</button>";
 	});
 	setURL();
 });// dom ready
