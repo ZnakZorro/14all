@@ -15,7 +15,7 @@ body {
     top: 0;
     left: 0;
 }
-div.content {display: block;overflow-y: scroll;position: fixed;}
+div.content {display:block;overflow-y:scroll;position:relative;}
 
 .navclose {
     left: 15px;
