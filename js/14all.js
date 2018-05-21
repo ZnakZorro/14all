@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 	//console.log(newDiv);
 	//$('.mobile-wrap').appendChild(newDiv);
-	$('.nav').appendChild(newDiv);
+	//$('.nav').appendChild(newDiv);
+	$('.nav').innerHTML = menuHtml;
 });
 
