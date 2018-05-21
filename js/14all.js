@@ -12,17 +12,23 @@ document.addEventListener('DOMContentLoaded', function() {
 	let xxyy = $('.content').getBoundingClientRect();
 	let hh = window.innerHeight;	
 	console.log(xxyy);
-	$('.content').style.height = (hh-xxyy.top)+'px';
+	$('.content').style.height = (hh - xxyy.top + 10)+'px';
 	
 	let menu14=["home","pogoda","radio","todo","3d","links"];
-	let menu_place = $('div.nav');
-	console.log('place=',menu_place);
+	//let menu_place = $('div.nav');
+	//console.log('place=',menu_place);
 	let arrpath = location.pathname.split('/');
 	console.log('arrpath=',arrpath);
 	let path = arrpath[arrpath.length-2];
 	console.log('path=',path);
+	
+	
+	let newDiv = document.createElement('div');
+	newDiv.className="nav";
 	menu14.forEach(function(m){
 		console.log(m);	
+		newDiv.innerHTML +=m;
 	});
+	$('.mobile-wrap').appendChild(newDiv);
 });
 
