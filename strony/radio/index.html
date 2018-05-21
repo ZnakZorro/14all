@@ -125,7 +125,7 @@ function radio(param,val){
 document.addEventListener('DOMContentLoaded', function() {
 	domains.forEach(function(ip){
 		console.log(ip);
-		$('#wyborip').innerHTML += "<button onClick='setIP(\'"+ip+"\')'>'+ip+"</button>";
+		$('#wyborip').innerHTML += "<button onClick='setIP(\'"+ip+"\')'>'"+ip+"</button>";
 	});
 	setURL();
 });// dom ready
