@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	let menuHtml ='';
 	menu14.forEach(function(m){
 		
-		let pre = '../../strony/';
+		let pre = '/14all/strony/';
 		let link = m;
 		if (path === m) {
 			pre='/14all/';
