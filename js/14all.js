@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	menu14.forEach(function(m){
 		console.log(m);	
 		//newDiv.innerHTML += m+'<br';
-		menuHtml += '<a href="./'+m+'" class="nava icon-'+m+'" title="'+m+'"><img src="/14all/css/'+m+'.svg" class="maska"></a>';
+		menuHtml += '<a href="./'+m+'" class="nava icon-'+m+'" title="'+m.toUpperCase()+'"><img src="/14all/css/'+m+'.svg" class="maska"></a>';
 	});
 	//console.log(newDiv);
 	//$('.mobile-wrap').appendChild(newDiv);
