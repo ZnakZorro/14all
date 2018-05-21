@@ -100,9 +100,9 @@ function setIP(ip){
 	console.log('setIP domain=',domain);
 	$('#radioip').value = domain;
 	$('#httpsblank').href = domain;
-	
-	
+	localStorage.setItem("https_domain", domain);
 }
+
 function setURL(){
 	domain = $('#radioip').value;
 	console.log('setURL domain=',domain);
@@ -127,6 +127,7 @@ function radio(param,val){
 }
 // DOM READY
 document.addEventListener('DOMContentLoaded', function() {
+	console.log('locat store domain=',localStorage.getItem("https_domain"));
 	if (localStorage.getItem("https_domain")) {
 		domain = localStorage.getItem("https_domain");
 		$('#radioip').value = domain;
