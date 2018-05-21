@@ -1,5 +1,5 @@
 "use strict";
-const cachNR = 35;
+const cachNR = 36;
 var PRECACHE = 'pre_14all_'+(cachNR+0);
 var RUNTIME  = 'off_14all_'+(cachNR+1);
 //console.log(PRECACHE,RUNTIME);
@@ -25,6 +25,11 @@ const PRECACHE_URLS = [
 	"/14all/css/layout.css",
 	"/14all/css/mdb.min.css",
 	"/14all/css/home.svg",
+	"/14all/css/pogoda.svg",
+	"/14all/css/radio.svg",
+	"/14all/css/todo.svg",
+	"/14all/css/links.svg",
+	"/14all/css/3d.svg",
 	"/14all/strony/3d/models/altanka.dae",
 	"/14all/strony/3d/models/kosiarka.dae",
 	"/14all/strony/3d/models/Skrzynia.dae",
