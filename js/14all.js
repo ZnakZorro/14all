@@ -27,8 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	newDiv.className="nav";
 	menu14.forEach(function(m){
 		console.log(m);	
-		newDiv.innerHTML +=m;
+		newDiv.innerHTML += m+'<br';
+		console.log(newDiv);
 	});
+	console.log(newDiv);
 	$('.mobile-wrap').appendChild(newDiv);
 });
 
