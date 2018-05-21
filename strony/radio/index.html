@@ -77,17 +77,32 @@
 	<div>
 		<input type="text" id="radioip" onkeypress="ZmianaIP(this)" style="min-width:15em; padding:3px; background:#eee;margin:1em;" value='https://192.168.31.160:8080'/>
 	</div>
+	<div>
+		<a href="#" target="_blank" class="btn btn-danger mini var" id="httpsblank">https blank</a>
+	</div>
+	<div>
+
+	</div>
+	<div>
+
+	</div>
 </div>  
 	
   
 <script>
+var domain = 'https://192.168.31.160:8080';
+
+function setURL(){
+	document.getElementById('myWindow').src = domain + '/radio/';
+	document.getElementById('httpsblank').href = domain ';
+}
+	
 function ZmianaIP(ten){
 	console.log(ten.value);
 	domain = ten.value;
 	console.log(domain);
+	setURL();
 }
-var domain = 'https://192.168.31.160:8080';
-document.getElementById('myWindow').src = domain + '/radio/';
 	
 function radio(param,val){
   var mess='/radio/info';
@@ -95,6 +110,8 @@ function radio(param,val){
 	if (val)   mess += val;
   document.getElementById('myWindow').src = domain+mess;
 }
+
+setURL();	
 	
 </script>		
 		
