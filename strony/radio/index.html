@@ -76,6 +76,7 @@
 	
 	<div>
 		<input type="text" id="radioip" onkeypress="ZmianaIP(this)" style="min-width:15em; padding:3px; background:#eee;margin:1em;" value='https://192.168.31.160:8080'/>
+		<button class="btn btn-info mini" onClick="setURL()">setURL</button>
 		<div id="wyborip"></div>
 	</div>
 	<div>
@@ -103,11 +104,10 @@ function setIP(ip){
 	
 }
 function setURL(){
-	//let ip = $('#radioip').value;
-	//console.log('ip=',ip);
 	domain = $('#radioip').value;
 	console.log('setURL domain=',domain);
 	$('#httpsblank').href = domain;
+	localStorage.setItem("https_domain", domain);	
 }
 	
 function ZmianaIP(ten){
@@ -126,6 +126,10 @@ function radio(param,val){
 }
 // DOM READY
 document.addEventListener('DOMContentLoaded', function() {
+	if (localStorage.getItem("https_domain")) {
+		domain = localStorage.getItem("https_domain");
+		$('#radioip').value = domain;
+	}
 	domains.forEach(function(ip){
 		console.log(ip);
 		$('#wyborip').innerHTML += "<button class='btn btn-info var mini' onClick='setIP(\""+ip+"\")'>"+ip+"</button>";
