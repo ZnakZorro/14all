@@ -22,15 +22,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	let path = arrpath[arrpath.length-2];
 	console.log('path=',path);
 	
-	
-	let newDiv = document.createElement('div');
-	newDiv.className="nav";
+	let menuHtml ='';
+	//let newDiv = document.createElement('div');
+	//newDiv.className="nav";
 	menu14.forEach(function(m){
 		console.log(m);	
-		newDiv.innerHTML += m+'<br';
-		console.log(newDiv);
+		//newDiv.innerHTML += m+'<br';
+		menuHtml += '<a href="./'+m+'" class="nava icon-'+m+'" title="'+m+'"><img src="/14all/css/'+m+'.svg" class="maska"></a>';
 	});
-	console.log(newDiv);
-	$('.mobile-wrap').appendChild(newDiv);
+	//console.log(newDiv);
+	//$('.mobile-wrap').appendChild(newDiv);
+	$('.nav').appendChild(newDiv);
 });
 
