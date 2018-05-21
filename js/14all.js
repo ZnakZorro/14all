@@ -20,8 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	console.log('path=',path);
 	
 	let menuHtml ='';
-	menu14.forEach(function(m){		
-		let pre = '/14all/strony/';
+	menu14.forEach(function(m){
+		let pre = './strony/';
+		if (path != '14all') {pre = '../../strony/';}
 		menuHtml += '<a href="'+pre+m+'" class="nava icon-'+m+'" title="'+m.toUpperCase()+'"><img src="/14all/css/'+m+'.svg" class="maska"></a>';
 	});
 	$('.nav').innerHTML += menuHtml;
