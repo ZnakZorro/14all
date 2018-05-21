@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	let menuHtml ='';
 	menu14.forEach(function(m){
 		console.log(m);	
-		let pre = '../../';
-		if (path == '14all') pre='./';
+		let pre = '../../strony/';
+		if (path == '14all') pre='/14all/';
 		menuHtml += '<a href="'+pre+m+'" class="nava icon-'+m+'" title="'+m.toUpperCase()+'"><img src="/14all/css/'+m+'.svg" class="maska"></a>';
 	});
 	//console.log(newDiv);
