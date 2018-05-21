@@ -10,8 +10,9 @@ function getURLParameter(name) {
 
 document.addEventListener('DOMContentLoaded', function() {
 	let xxyy = $('.content').getBoundingClientRect();
+	let hh = window.innerHeight;	
 	console.log(xxyy);
-	$('.content').style.height = '500px';
+	$('.content').style.height = (hh-xxyy.top)+'px';
 	
 	let menu14=["home","pogoda","radio","todo","3d","links"];
 	let menu_place = $('div.nav');
