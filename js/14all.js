@@ -9,7 +9,7 @@ function getURLParameter(name) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-	let menu14=["14all","pogoda","radio","todo","3d","links"];
+	let menu14=["pogoda","radio","todo","3d","links"];
 	
 	let xxyy = $('.content').getBoundingClientRect();
 	let hh = window.innerHeight;	
@@ -20,21 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	console.log('path=',path);
 	
 	let menuHtml ='';
-	menu14.forEach(function(m){
-		
+	menu14.forEach(function(m){		
 		let pre = '/14all/strony/';
-		let link = m;
-		if (path === m) {
-			pre='/14all/';
-			link='';
-			m='home';
-		}
-		console.log(m,path,pre,link);	
-		menuHtml += '<a href="'+pre+link+'" class="nava icon-'+m+'" title="'+m.toUpperCase()+'"><img src="/14all/css/'+m+'.svg" class="maska"></a>';
+		menuHtml += '<a href="'+pre+m+'" class="nava icon-'+m+'" title="'+m.toUpperCase()+'"><img src="/14all/css/'+m+'.svg" class="maska"></a>';
 	});
-	//console.log(newDiv);
-	//$('.mobile-wrap').appendChild(newDiv);
-	//$('.nav').appendChild(newDiv);
-	$('.nav').innerHTML += '<div>'+menuHtml+'</div>';
+	$('.nav').innerHTML += menuHtml;
 });
 
