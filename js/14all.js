@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.log(m);	
 		let pre = '../../strony/';
 		let link = m;
-		if (path == '14all') {
+		if (path === '14all') {
 			pre='/14all/';
 			link='';
 		}
@@ -33,6 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	//console.log(newDiv);
 	//$('.mobile-wrap').appendChild(newDiv);
 	//$('.nav').appendChild(newDiv);
-	$('.nav').innerHTML += '<hr />'+menuHtml;
+	$('.nav').innerHTML += '<div>'+menuHtml+'</div>';
 });
 
