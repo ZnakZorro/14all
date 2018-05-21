@@ -9,7 +9,7 @@ function getURLParameter(name) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-	let menu14=["home","pogoda","radio","todo","3d","links"];
+	let menu14=["14all","pogoda","radio","todo","3d","links"];
 	
 	let xxyy = $('.content').getBoundingClientRect();
 	let hh = window.innerHeight;	
@@ -21,13 +21,15 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	let menuHtml ='';
 	menu14.forEach(function(m){
-		console.log(m);	
+		
 		let pre = '../../strony/';
 		let link = m;
-		if (path === '14all') {
+		if (path === m) {
 			pre='/14all/';
 			link='';
+			m='home';
 		}
+		console.log(m,path,pre,link);	
 		menuHtml += '<a href="'+pre+link+'" class="nava icon-'+m+'" title="'+m.toUpperCase()+'"><img src="/14all/css/'+m+'.svg" class="maska"></a>';
 	});
 	//console.log(newDiv);
