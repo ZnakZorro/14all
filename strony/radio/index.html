@@ -76,13 +76,14 @@
 	
 	<div>
 		<input type="text" id="radioip" onkeypress="ZmianaIP(this)" style="min-width:15em; padding:3px; background:#eee;margin:1em;" value='https://192.168.31.160:8080'/>
+		<div id="wyborip"></div>
 	</div>
 	<div>
 		<a href="#" target="_blank" class="btn btn-danger mini var" id="httpsblank">https blank</a>
 	</div>
 	<div>
 
-	</div>
+	</div id="infoip">
 	<div>
 
 	</div>
@@ -90,11 +91,19 @@
 	
   
 <script>
+var domains=['192.168.31.160','82.145.72.169'];
 var domain = 'https://192.168.31.160:8080';
 
+function setIP(ip){
+	domain = 'https://'+ip+':8080';
+	console.log('domain=',domain);
+}
 function setURL(){
-	document.getElementById('myWindow').src = domain + '/radio/';
-	document.getElementById('httpsblank').href = domain ';
+	//let ip = $('#radioip').value;
+	//console.log('ip=',ip);
+	//domain = 'https://'+ip+':8080';
+	domain = $('#radioip').value;
+	console.log('domain=',domain);
 }
 	
 function ZmianaIP(ten){
@@ -103,6 +112,7 @@ function ZmianaIP(ten){
 	console.log(domain);
 	setURL();
 }
+
 	
 function radio(param,val){
   var mess='/radio/info';
@@ -110,8 +120,15 @@ function radio(param,val){
 	if (val)   mess += val;
   document.getElementById('myWindow').src = domain+mess;
 }
+// DOM READY
+document.addEventListener('DOMContentLoaded', function() {
+	domains.forEach(function(ip){
+		console.log(ip);
+		$('#wyborip').innerHTML += '<button onClick="setURL(\"'+ip+'\")">'+ip+'</button>';
+	});
+	setURL();
+});// dom ready
 
-setURL();	
 	
 </script>		
 		
