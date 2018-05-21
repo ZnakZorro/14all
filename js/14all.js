@@ -23,12 +23,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	menu14.forEach(function(m){
 		console.log(m);	
 		let pre = '../../strony/';
-		if (path == '14all') pre='/14all/';
-		menuHtml += '<a href="'+pre+m+'" class="nava icon-'+m+'" title="'+m.toUpperCase()+'"><img src="/14all/css/'+m+'.svg" class="maska"></a>';
+		let link = m;
+		if (path == '14all') {
+			pre='/14all/';
+			link='';
+		}
+		menuHtml += '<a href="'+pre+link+'" class="nava icon-'+m+'" title="'+m.toUpperCase()+'"><img src="/14all/css/'+m+'.svg" class="maska"></a>';
 	});
 	//console.log(newDiv);
 	//$('.mobile-wrap').appendChild(newDiv);
 	//$('.nav').appendChild(newDiv);
-	$('.nav').innerHTML = menuHtml;
+	$('.nav').innerHTML += '<hr />'+menuHtml;
 });
 
