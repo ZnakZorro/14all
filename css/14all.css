@@ -109,7 +109,7 @@ button.btn, a.btn {
 
 
 /*Laptopy*/
-@media screen and (min-width: 1400px){
+@media screen and (min-width: 800px){
     .nava {
         width: 60px;
         height: 60px;
