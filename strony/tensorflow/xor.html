@@ -1,0 +1,68 @@
+<html>
+  <head>
+      <meta charset="utf-8">
+    <title>2 tensorFlow </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+        <style>body {font: normal 11pt verdana;}</style>
+    <!-- Load TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.9.0"> </script>
+  </head>
+  <body>
+  <h3>JS TensorFlow xor.html</h3>
+  <pre id="out"></pre>
+   
+  
+    <script>
+	"use strict";
+	const $=(y)=>document.querySelector(y);
+	
+	function pisz(o){
+		console.log(o)
+		var j = (o).toString();
+		console.log('j=',j)
+		var arr = j.match(/\[(.*?)\]/g);
+		arr.forEach(function(ar){
+			//console.log('ar=',ar);
+			let val = ar.replace("[","").replace("[","").replace("]","");
+			console.log('val=',val);	
+			$('#out').innerHTML += val+'<hr />';
+		});
+	}
+	
+async function go() {
+
+	const model = tf.sequential();
+	model.add(tf.layers.dense({units: 10, activation: 'sigmoid',inputShape: [2]}));
+	model.add(tf.layers.dense({units: 1, activation: 'sigmoid',inputShape: [10]}));
+
+	model.compile({loss: 'meanSquaredError', optimizer: 'rmsprop'});
+
+	const training_data = tf.tensor2d([[0,0],[0,1],[1,0],[1,1]]);
+	const target_data   = tf.tensor2d([0,1,1,0]);
+
+	for (let i = 1; i < 80 ; ++i) {
+	 var h = await model.fit(training_data, target_data, {epochs: 30});
+	   console.log("Loss after Epoch " + i + " : " + h.history.loss[0]);
+	}	 
+
+	//model.predict(training_data).print();
+	//var o = model.predict(training_data);
+	//model.predict(tf.tensor2d([[0,0],[0,1]])).print();
+	var out1 = model.predict(tf.tensor2d([[1,0],[0,1]]));
+	pisz(out1);
+
+	var out2 = model.predict(tf.tensor2d([[1,1],[0,0]]));
+	pisz(out2);
+
+
+}
+go();	
+	
+
+    </script>
+  
+  
+  
+  
+  </body>
+</html>
