@@ -1,7 +1,7 @@
 "use strict";
-const cachNR = 45;
+const cachNR = 46;
 var RUNTIME  = 'off_14all_'+(cachNR+0);
-var PRECACHE = 'pre_14all_'+(cachNR+1);
+var PRECACHE = 'pre_14all_'+(cachNR-1);
 
 //console.log(PRECACHE,RUNTIME);
 const PRECACHE_URLS = [
