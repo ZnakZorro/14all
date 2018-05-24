@@ -1,0 +1,141 @@
+<html>
+  <head>
+      <meta charset="utf-8">
+    <title>dopasowanie.html tensorFlow </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+        <style>
+			body {font: normal 11pt verdana;}
+			div#out {}
+			div#out div {float:left; margin:3px;padding:10px;clear:both;}
+			div#out div span {float:left; min-width:10em; padding:10px; text-align:center;}
+		</style>
+    <!-- Load TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.9.0"> </script>
+  </head>
+  <body>
+  <h3>JS TensorFlow dopasowanie.html.html</h3>
+  <div id="out"></div>
+  <pre id="code"></pre>
+   
+  
+    <script>
+	"use strict";
+	const $=(y)=>document.querySelector(y);
+	
+	function opisz(val,txt){
+		console.log('val=',val);
+		
+		let obj = eval('['+val+']');
+		console.log('obj=',obj);
+		let rgb =[];
+		rgb[0]  = Math.round(obj[0]*255);
+		rgb[1]  = Math.round(obj[1]*255);
+		rgb[2]  = Math.round(obj[2]*255);
+		let rval = rgb.join(',');
+		let kolor = 'rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')';
+		console.log('rgb=',rgb);
+		
+		let html = '<div style="background:'+kolor+'">';
+		//$('#out').innerHTML += txt+'=['+val+'] '+kolor+'<hr />';
+		html += '<span style="background:'+txt+'; color:'+kolor+'">['+txt+']</span>';
+		html += '<span style="background:'+kolor+'">['+rval+']</span>';
+		html += '</div>';
+		$('#out').innerHTML += html;
+
+	}
+	
+	function pisz(o,txt){
+		console.log(o)
+		var j = (o).toString();
+		console.log('j=',j)
+		var arr = j.match(/\[(.*?)\]/g);
+		arr.forEach(function(ar){
+			//console.log('ar=',ar);
+			let val = ar.replace("[","").replace("[","").replace("]","");
+			return opisz(val,txt);
+			console.log('val=',val);
+			let kolor = 'black';
+			if (val>0.5) kolor='white';
+			$('#out').innerHTML += txt+'=['+val+'] '+kolor+'<hr />';
+		});
+	}
+	
+	
+	
+	//var tf = require('@tensorflow/tfjs');
+	
+	async function modelRUN(epochs,iters) {
+
+		const model = tf.sequential();
+		model.add(tf.layers.dense({units: 10, activation: 'sigmoid',inputShape: [3]}));
+		model.add(tf.layers.dense({units: 3, activation: 'sigmoid',inputShape: [3]}));
+
+		model.compile({loss: 'meanSquaredError', optimizer: 'rmsprop'});
+
+		const training_data = tf.tensor2d([ [0,0,0],[1,1,1],[0.2,0.2,0.2],[0.9,0.9,0.9],[1,1,0],[1,0,0],[0,1,0],[0,0,1],[0  ,0  ,0.8]  ]);
+		const target_data   = tf.tensor2d([ [1,1,1],[0,0,0],[0.9,0.9,0.9],[0.2,0.2,0.2],[0,1,1],[0,1,1],[1,0,1],[1,1,0],[0.8,0.8,0]   ]);
+
+		for (let i = 1; i < iters ; ++i) {
+		 var h = await model.fit(training_data, target_data, {epochs: epochs});
+		   console.log("Loss after Epoch " + i + " : " + h.history.loss[0]);
+		}	 
+
+
+		
+		//model.predict(training_data).print();
+		//var o = model.predict(training_data);
+		//model.predict(tf.tensor2d([[0,0],[0,1]])).print();
+		var out1 = model.predict(tf.tensor2d([[0,0,0]]));
+		pisz(out1,'black');
+
+		var out2 = model.predict(tf.tensor2d([[1,1,1]]));
+		pisz(out2,'white');
+		
+
+		var out5 = model.predict(tf.tensor2d([[0.8,0.8,0.8]]));
+		pisz(out5,'silver');
+
+		var out6 = model.predict(tf.tensor2d([[0.4,0.4,0.4]]));
+		pisz(out6,'gray');
+
+		var out3 = model.predict(tf.tensor2d([[1,1,0]]));
+		pisz(out3,'yellow');
+
+		var out7 = model.predict(tf.tensor2d([[1,0,0]]));
+		pisz(out6,'red');
+		
+		var out4 = model.predict(tf.tensor2d([[0,1,0]]));
+		pisz(out4,'green');
+		
+		var out8 = model.predict(tf.tensor2d([[0,0,1]]));
+		pisz(out8,'blue');
+		
+		console.log('1 ---------');
+		console.log(model);
+		/*
+		let zapis = JSON.stringify(model);
+		$('#code').textContent = zapis+"\n\n";
+		//console.log(zapis);
+		
+		//const model2 = await tf.loadModel(zapis);
+		const model2 = JSON.parse(zapis);
+		console.log('2 ---------');
+		console.log(model2);
+		
+		//https://js.tensorflow.org/tutorials/model-save-load.html
+		//const saveResults = await model.save('localstorage://my-model-1');
+		//console.log(saveResults);
+		*/
+	}
+
+//modelRUN(epochs,iters)	
+modelRUN(30,250);	
+	
+
+    </script>
+  
+  
+  
+  
+  </body>
+</html>
