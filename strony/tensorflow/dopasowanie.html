@@ -12,7 +12,8 @@
 			div#out div span {float:left; min-width:10em; padding:10px; text-align:center;}
 		</style>
     <!-- Load TensorFlow.js -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.9.0"> </script>
+    <!--script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.9.0"> </script-->
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.2"> </script>
   </head>
   <body>
   <h3>JS TensorFlow dopasowanie.html</h3>
@@ -21,7 +22,8 @@
 	<a href="?epochs=10&iters=10&minLoss=0.05">10/10/0.05</a> 
 	<a href="?epochs=10&iters=30&minLoss=0.05">10/30/0.05</a> 
 	<a href="?epochs=30&iters=50&minLoss=0.0025">30/50/0.0025</a> 
-	<a href="?epochs=30&iters=250&minLoss=0.0002">30/250/0.0002</a> 
+	<a href="?epochs=30&iters=250&minLoss=0.001">30/250/0.001</a> 
+	<a href="?epochs=30&iters=1250&minLoss=0.001">MAX: 30/1250/0.001</a> 
   
   </div>
   
@@ -34,9 +36,9 @@
 	"use strict";
 	const $=(y)=>document.querySelector(y);
 	
-	function getURLParameter(name) {
+	function getURLParameter(name,def) {
 			return decodeURIComponent(
-				(location.search.match(RegExp("[?|&]"+name+'=(.+?)(&|$)'))||[,null])[1]
+				(location.search.match(RegExp("[?|&]"+name+'=(.+?)(&|$)'))||[,def])[1]
 			);
 	}
 
@@ -106,7 +108,6 @@
 			realIters++;
 		}	 
 
-
 		
 		//model.predict(training_data).print();
 		//var o = model.predict(training_data);
@@ -135,6 +136,9 @@
 		
 		var out8 = model.predict(tf.tensor2d([[0,0,1]]));
 		pisz(out8,'blue');
+		
+		var out9 = model.predict(tf.tensor2d([[0.01,0.02,0.2]]));
+		pisz(out9,'navy');
 		
 		console.log('1 ---------');
 		console.log(model);
