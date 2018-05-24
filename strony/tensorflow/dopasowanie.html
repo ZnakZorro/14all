@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
         <style>
 			body {font: normal 11pt verdana;}
+			div.menu {background:#eee;padding:5px; margin:5px; float:left; width:100%;}
+			div.menu a {background:#888; color:#fff; padding:10px; margin:5px; text-align:center; float:left; border-radius:5px; border:1px solid #444;}
 			div#out {}
 			div#out div {float:left; margin:3px;padding:10px;clear:both; font-weight:bold;}
 			div#out div span {float:left; min-width:10em; padding:10px; text-align:center;}
@@ -13,15 +15,33 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.9.0"> </script>
   </head>
   <body>
-  <h3>JS TensorFlow dopasowanie.html.html</h3>
+  <h3>JS TensorFlow dopasowanie.html</h3>
+  <p>?epochs / iters / minLoss</p>
+  <div class="menu">
+	<a href="?epochs=10&iters=10&minLoss=0.05">10/10/0.05</a> 
+	<a href="?epochs=10&iters=30&minLoss=0.05">10/30/0.05</a> 
+	<a href="?epochs=30&iters=50&minLoss=0.0025">30/50/0.0025</a> 
+	<a href="?epochs=30&iters=250&minLoss=0.0002">30/250/0.0002</a> 
+  
+  </div>
+  
   <div id="wyniki"></div>
   <div id="out"></div>
   <pre id="code"></pre>
    
-  
+
     <script>
 	"use strict";
 	const $=(y)=>document.querySelector(y);
+	
+	function getURLParameter(name) {
+			return decodeURIComponent(
+				(location.search.match(RegExp("[?|&]"+name+'=(.+?)(&|$)'))||[,null])[1]
+			);
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+	});  
 	
 	function opisz(val,txt){
 		console.log('val=',val);
@@ -135,8 +155,13 @@
 		$('#wyniki').innerHTML = 'epochs='+epochs+', iters='+iters+', realIters='+realIters+', loss='+loss;
 	}
 
-//modelRUN(epochs,iters,minLoss)	
-modelRUN(30,200,0.005);	
+//modelRUN(epochs,iters,minLoss)
+let epoches_ = getURLParameter('epochs',30);
+let iters_   = getURLParameter('iters',50);
+let minLoss_ = getURLParameter('minLoss',0.0025);
+console.log(epoches_,iters_,minLoss_);
+modelRUN(epoches_,iters_,minLoss_);
+//modelRUN(30,1200,0.0025);	
 	
 
     </script>
