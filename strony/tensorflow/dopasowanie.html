@@ -6,7 +6,7 @@
         <style>
 			body {font: normal 11pt verdana;}
 			div#out {}
-			div#out div {float:left; margin:3px;padding:10px;clear:both;}
+			div#out div {float:left; margin:3px;padding:10px;clear:both; font-weight:bold;}
 			div#out div span {float:left; min-width:10em; padding:10px; text-align:center;}
 		</style>
     <!-- Load TensorFlow.js -->
@@ -14,6 +14,7 @@
   </head>
   <body>
   <h3>JS TensorFlow dopasowanie.html.html</h3>
+  <div id="wyniki"></div>
   <div id="out"></div>
   <pre id="code"></pre>
    
@@ -38,7 +39,7 @@
 		let html = '<div style="background:'+kolor+'">';
 		//$('#out').innerHTML += txt+'=['+val+'] '+kolor+'<hr />';
 		html += '<span style="background:'+txt+'; color:'+kolor+'">['+txt+']</span>';
-		html += '<span style="background:'+kolor+'">['+rval+']</span>';
+		html += '<span style="background:'+kolor+'; color:'+txt+'">['+rval+']</span>';
 		html += '</div>';
 		$('#out').innerHTML += html;
 
@@ -64,7 +65,7 @@
 	
 	//var tf = require('@tensorflow/tfjs');
 	
-	async function modelRUN(epochs,iters) {
+	async function modelRUN(epochs,iters,minLoss) {
 
 		const model = tf.sequential();
 		model.add(tf.layers.dense({units: 10, activation: 'sigmoid',inputShape: [3]}));
@@ -74,10 +75,15 @@
 
 		const training_data = tf.tensor2d([ [0,0,0],[1,1,1],[0.2,0.2,0.2],[0.9,0.9,0.9],[1,1,0],[1,0,0],[0,1,0],[0,0,1],[0  ,0  ,0.8]  ]);
 		const target_data   = tf.tensor2d([ [1,1,1],[0,0,0],[0.9,0.9,0.9],[0.2,0.2,0.2],[0,1,1],[0,1,1],[1,0,1],[1,1,0],[0.8,0.8,0]   ]);
-
+		
+		let loss=0;
+		let realIters = 0;
 		for (let i = 1; i < iters ; ++i) {
-		 var h = await model.fit(training_data, target_data, {epochs: epochs});
-		   console.log("Loss after Epoch " + i + " : " + h.history.loss[0]);
+			var h = await model.fit(training_data, target_data, {epochs: epochs});
+			console.log("Loss after Epoch " + i + " : " + h.history.loss[0]);
+			loss = h.history.loss[0];
+			if (loss<minLoss) break;
+			realIters++;
 		}	 
 
 
@@ -126,10 +132,11 @@
 		//const saveResults = await model.save('localstorage://my-model-1');
 		//console.log(saveResults);
 		*/
+		$('#wyniki').innerHTML = 'epochs='+epochs+', iters='+iters+', realIters='+realIters+', loss='+loss;
 	}
 
-//modelRUN(epochs,iters)	
-modelRUN(30,250);	
+//modelRUN(epochs,iters,minLoss)	
+modelRUN(30,200,0.005);	
 	
 
     </script>
