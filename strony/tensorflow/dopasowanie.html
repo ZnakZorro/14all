@@ -14,23 +14,43 @@
     <!-- Load TensorFlow.js -->
     <!--script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.9.0"> </script-->
 	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.2"> </script>
+	
   </head>
   <body>
   <h3>JS TensorFlow dopasowanie.html</h3>
   <p>?epochs / iters / minLoss</p>
+  
   <div class="menu">
+	<a href="?epochs=3&iters=3&minLoss=0.5">min</a> 
 	<a href="?epochs=10&iters=10&minLoss=0.05">10/10/0.05</a> 
 	<a href="?epochs=10&iters=30&minLoss=0.05">10/30/0.05</a> 
 	<a href="?epochs=30&iters=50&minLoss=0.0025">30/50/0.0025</a> 
+	<a href="?epochs=30&iters=100&minLoss=0.0025">30/100/0.0025</a> 
 	<a href="?epochs=30&iters=250&minLoss=0.001">30/250/0.001</a> 
 	<a href="?epochs=30&iters=1250&minLoss=0.001">MAX: 30/1250/0.001</a> 
   
   </div>
+	<div style="width:100%; padding:1em; float:left;">
+		<div style="width:25%; float:left;">
+			<span style="float:left;">in: </span> 
+			<input type="color" value="#ff0000" id="colorWell" style="width: 150px;height: 70px;">
+		</div>
+		<div style="width:50%; float:left;">
+			<span style="float:left;">out: </span> 
+			<div id="nowykolor"style="width: 150px;height: 70px; background:#eee;  float:left;"></div>
+			<div id="wyliczony"style="width: 150px;height: 70px; background:#aaa;  float:left;"></div>
+			
+		</div>
+  </div>
   
-  <div id="wyniki"></div>
+
+  
+  
+  <div id="wyniki"style="width:100%; padding:1em; float:left;"></div>
   <div id="out"></div>
   <pre id="code"></pre>
-   
+
+
 
     <script>
 	"use strict";
@@ -46,17 +66,16 @@
 	});  
 	
 	function opisz(val,txt){
-		console.log('val=',val);
+		//console.log('val=',val);
 		
 		let obj = eval('['+val+']');
-		console.log('obj=',obj);
+		//console.log('obj=',obj);
 		let rgb =[];
 		rgb[0]  = Math.round(obj[0]*255);
 		rgb[1]  = Math.round(obj[1]*255);
 		rgb[2]  = Math.round(obj[2]*255);
 		let rval = rgb.join(',');
 		let kolor = 'rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')';
-		console.log('rgb=',rgb);
 		
 		let html = '<div style="background:'+kolor+'">';
 		//$('#out').innerHTML += txt+'=['+val+'] '+kolor+'<hr />';
@@ -64,34 +83,46 @@
 		html += '<span style="background:'+kolor+'; color:'+txt+'">['+rval+']</span>';
 		html += '</div>';
 		$('#out').innerHTML += html;
-
+		
+		//console.log('rgb=',rgb);
+		//console.log('kolor 99=',kolor);
+		
+		return kolor;
 	}
 	
 	function pisz(o,txt){
-		console.log(o)
+		//console.log(o)
 		var j = (o).toString();
-		console.log('j=',j)
+		//console.log('j=',j)
 		var arr = j.match(/\[(.*?)\]/g);
+		//console.log('arr 109=',arr)
+		let out = [];
 		arr.forEach(function(ar){
 			//console.log('ar=',ar);
 			let val = ar.replace("[","").replace("[","").replace("]","");
-			return opisz(val,txt);
-			console.log('val=',val);
-			let kolor = 'black';
-			if (val>0.5) kolor='white';
-			$('#out').innerHTML += txt+'=['+val+'] '+kolor+'<hr />';
+			out.push(opisz(val,txt));
+			//console.log('out 115=',out)
+			//console.log('val=',val);
+			//let kolor = 'black';
+			//if (val>0.5) kolor='white';
+			//$('#out').innerHTML += txt+'=['+val+'] '+kolor+'<hr />';
 		});
+		//console.log('#121 out=',out)
+		return out;
 	}
 	
 	
 	
 	//var tf = require('@tensorflow/tfjs');
+	var model = null;
 	
 	async function modelRUN(epochs,iters,minLoss) {
-
-		const model = tf.sequential();
-		model.add(tf.layers.dense({units: 10, activation: 'sigmoid',inputShape: [3]}));
+		console.log('epochs,iters,minLoss=',epochs,iters,minLoss);
+		model = tf.sequential();
+		model.add(tf.layers.dense({units: 9, activation: 'sigmoid',inputShape: [3]}));
+		model.add(tf.layers.dense({units: 9, activation: 'sigmoid',inputShape: [3]}));
 		model.add(tf.layers.dense({units: 3, activation: 'sigmoid',inputShape: [3]}));
+		
 
 		model.compile({loss: 'meanSquaredError', optimizer: 'rmsprop'});
 
@@ -102,7 +133,7 @@
 		let realIters = 0;
 		for (let i = 1; i < iters ; ++i) {
 			var h = await model.fit(training_data, target_data, {epochs: epochs});
-			console.log("Loss after Epoch " + i + " : " + h.history.loss[0]);
+			if(i%10==0)console.log("Loss after Epoch " + i + " : " + h.history.loss[0]);
 			loss = h.history.loss[0];
 			if (loss<minLoss) break;
 			realIters++;
@@ -160,17 +191,65 @@
 	}
 
 //modelRUN(epochs,iters,minLoss)
-let epoches_ = getURLParameter('epochs',30);
-let iters_   = getURLParameter('iters',50);
+let epoches_ = getURLParameter('epochs',10);
+let iters_   = getURLParameter('iters',10);
 let minLoss_ = getURLParameter('minLoss',0.0025);
-console.log(epoches_,iters_,minLoss_);
+//console.log(epoches_,iters_,minLoss_);
 modelRUN(epoches_,iters_,minLoss_);
 //modelRUN(30,1200,0.0025);	
 	
 
     </script>
   
-  
+ <script>
+function h2rgb(hex,opacity){
+    hex = hex.replace('#','');
+    r = parseInt(hex.substring(0,2), 16);
+    g = parseInt(hex.substring(2,4), 16);
+    b = parseInt(hex.substring(4,6), 16);
+	return [r,g,b];
+    //result = 'rgba('+r+','+g+','+b+','+opacity/100+')';
+    //return result;
+}
+		var colorWell;
+		var defaultColor = "#dddddd";
+
+		window.addEventListener("load", startup, false);
+		function startup() {
+		  colorWell = document.querySelector("#colorWell");
+		  colorWell.value = defaultColor;
+		  colorWell.addEventListener("input", updateFirst, false);
+		  colorWell.addEventListener("change", updateAll, false);
+		  colorWell.select();
+		}
+		function updateFirst(event) {
+			let hex = (event.target.value);
+			let rgb = h2rgb(hex);
+			let norm = [];
+			norm[0] = (rgb[0]/255);
+			norm[1] = (rgb[1]/255);
+			norm[2] = (rgb[2]/255);
+			//console.log(hex,rgb,norm);
+			var nowykolor = document.querySelector("#nowykolor");
+
+		  if (nowykolor) {
+			nowykolor.style.background = event.target.value;
+			let nowy = model.predict(tf.tensor2d([norm]));
+			let wyliczony = pisz(nowy,hex);
+			console.log('#240 hex wyliczony=',hex,wyliczony)
+			//console.log('#251 wyliczony=',wyliczony[0])
+			document.querySelector("#wyliczony").style.background = wyliczony[0];
+		  }
+		}
+		
+		function updateAll(event) {
+			//console.log(event.target.value)
+			//document.querySelectorAll("p").forEach(function(p) {
+				//p.style.color = event.target.value;
+			//});
+		}
+		
+</script>   
   
   
   </body>
