@@ -14,7 +14,17 @@
     <!-- Load TensorFlow.js -->
     <!--script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.9.0"> </script-->
 	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.2"> </script>
-	
+		<script>
+				"use strict";
+				const $=(y)=>document.querySelector(y);
+				
+				function getURLParameter(name,def) {
+						return decodeURIComponent(
+							(location.search.match(RegExp("[?|&]"+name+'=(.+?)(&|$)'))||[,def])[1]
+						);
+				}
+		
+		</script>
   </head>
   <body>
   <h3>JS TensorFlow running</h3>
@@ -48,17 +58,149 @@
   <div id="out"></div>
   <pre id="code"></pre>
 
+  
+  
+	<div style="float:left; clear:both; width:100%; float:left;margin:0.5em; border:1px solid blue;">
+		<div class="image" style="float: left;"><canvas id="canv_original"></canvas></div>
+		<div class="image" style="float: left;"><canvas id="canv_net"></canvas></div>
+		<div style="clear:both;"></div>
+	</div>
+	
+	<div style="float:left; clear:both;"></div>
+	
+	<div id="report"  style="float:left; clear:both;"></div>
+
+
+		<div style="float:left; clear:both; width:100%; float:left;margin:0.5em; border:1px solid blue;">
+		<a id="download" download="image.png">
+		<button type="button" onClick="download()" class="klawisz" id="downloadKey" >Download</button></a>
+			<button onclick="stop()"  id="stopKey"  >Stop</button>
+			<input id="f" type="file"  class="klawisz" />
+			<button onclick="start()" id="startKey" >Start Translete</button>
+		</div>
+  
+ <script>
+ var ori_canvas, nn_canvas, ori_ctx, nn_ctx, oridata;
+ori_canvas = document.getElementById('canv_original');
+      nn_canvas = document.getElementById('canv_net');
+	  
+var imageName = 'tsf';
+
+ $("#f").addEventListener('change', function(ev) {
+      var f = ev.target.files[0];
+	  console.log(f.name);
+	  imageName = f.name.replace('.jpg','.png').replace('.JPG','.png');
+	  console.log(imageName);
+      var fr = new FileReader();
+      fr.onload = function(ev2) {
+	  //console.log(ev2)
+        var image = new Image();
+        image.onload = function(){
+					szX = image.naturalWidth;
+					szY = image.naturalHeight;
+						//console.log(szX,szY,image.src.split('/'));
+						//imageName = image.src.split('/').pop().replace('.jpg','.png').replace('.JPG','.png')
+						//console.log(imageName);					
+					//console.log(szX,szY);
+					 ori_canvas.width = szX;
+					  ori_canvas.height = szY;
+					  nn_canvas.width = szX;
+					  nn_canvas.height = szY;
+
+					  ori_ctx = ori_canvas.getContext("2d");
+					  nn_ctx = nn_canvas.getContext("2d");
+					  ori_ctx.drawImage(image, 0, 0, szX, szY);
+					  oridata = ori_ctx.getImageData(0, 0, szX, szY); // grab the data pointer. Our dataset.					
+          ori_ctx.drawImage(image, 0, 0, szX, szY);
+          oridata = ori_ctx.getImageData(0, 0, szX, szY);
+          //reload();
+        }
+        image.src = ev2.target.result;
+      };
+      fr.readAsDataURL(f);
+    });
+	
+
+	
+function transrgb(r,g,b){
+	let rr = r /255;
+	let gg = g /255;
+	let bb = b /255;
+	let o = model.predict(tf.tensor2d([[rr,gg,bb]]));
+		var j = (o).toString();
+		//console.log(j);
+		//var arr1 = j.match(/\[\[(.*?)\]\,\]/g);
+		//console.log(arr1);
+		var arr = j.match(/\[(.*?)\]/g);
+		//console.log(arr);		
+		var ar = arr[0];
+		let val = ar.replace("[","").replace("[","").replace("]","");
+		let arrr = val.split(', ');
+		
+		arrr[0] = Math.round(parseFloat(arrr[0])*255);
+		arrr[1] = Math.round(parseFloat(arrr[1])*255);
+		arrr[2] = Math.round(parseFloat(arrr[2])*255);
+		return (arrr);
+		
+}
+	
+function start(){
+  var W = nn_canvas.width;
+  var H = nn_canvas.height;
+
+  var og = ori_ctx.getImageData(0, 0, W, H);
+  //var v = new convnetjs.Vol(1, 1, 2);
+  for(var x=0;x<W;x++) {
+	if(x%10==0) console.log(x);
+    //v.w[0] = (x-W/2)/W;
+    for(var y=0;y<H;y++) {
+      //v.w[1] = (y-H/2)/H;
+      var ix = ((W*y)+x)*4;
+	  //console.log(ix)
+      var r = og.data[ix+0];
+      var g = og.data[ix+1];
+      var b = og.data[ix+2];
+	  let rgb = transrgb(r,g,b)
+	  //console.log(rgb);
+      og.data[ix+0] = rgb[0];
+      og.data[ix+1] = rgb[1];
+      og.data[ix+2] = rgb[2];
+      og.data[ix+3] = 255; // alpha...
+    }
+  }
+  //console.log(og)
+  nn_ctx.putImageData(og, 0, 0);
+  console.log('koniec');
+}
+
+
+var count = 1;	
+ function download(){
+			//var trlr = Math.round(trainer.learning_rate*1000000);
+			//var sliderRate = document.getElementById("slider5").value;
+			//console.log('#460=',sliderRate,trlr);
+			//var trlr = Math.log(trainer.learning_rate) / Math.LN10;
+			//trlr = Math.round(trlr*1000);
+			var arr=imageName.split('.');
+			//var count = Math.floor(counter/100)*100;
+			var cimageName = arr[0]+'-tsf-'+count+'.'+arr[1];//+'-'+Filtr+'%'+sliderRate+'#'+count+'.'+arr[1];
+			count++;
+			//console.log('#466=',cimageName,trainer.learning_rate);
+		
+        var download = document.getElementById("download");
+		download.setAttribute('download',cimageName); 
+        var image = document.getElementById("canv_net").toDataURL("image/png").replace("image/png", "image/octet-stream");
+        download.setAttribute("href", image);
+		//dolar('downloadKey').style.background="red";
+		//setTimeout(function(){dolar('downloadKey').style.background="#ddd";},1500)
+    }
+
+ 
+ </script> 
+  
 
 
     <script>
-	"use strict";
-	const $=(y)=>document.querySelector(y);
-	
-	function getURLParameter(name,def) {
-			return decodeURIComponent(
-				(location.search.match(RegExp("[?|&]"+name+'=(.+?)(&|$)'))||[,def])[1]
-			);
-	}
 
 	document.addEventListener('DOMContentLoaded', function() {
 	});  
