@@ -2,6 +2,8 @@
 let path = require('path');
 let fs = require('fs');
 
+const shuffleArray = arr => arr.sort(() => Math.random() - 0.5);
+
 Array.prototype.shuffle=function(){
    var len = this.length,temp,i
    while(len){
@@ -27,13 +29,17 @@ Array.prototype.shuffle=function(){
 	}
 
 /*****************************/
+let divider    = 100;
+let globalpath = 'randomMusic';
+let batFile    = 'randomfiles.bat';
+/*****************************/
 
 let musicdirs = readDirs();//['1-VocalLegends','2-JazzBallads'];
 let allmusic=[];
-let outText = 'mkdir randomMusic\n';
+let outText = 'mkdir '+globalpath+'\n';
 
 	musicdirs.forEach(function(dir){
-		if (dir.toUpperCase() != 'ZAPAS' || dir.toUpperCase() != 'RANDOMMUSIC'){
+		if (dir.toUpperCase() != 'ZAPAS' && dir.toUpperCase() != globalpath.toUpperCase()){
 			let directoryPath = path.join(__dirname, dir);
 			let files = fs.readdirSync(directoryPath)
 			let pliki = files.map(function(f) {
@@ -43,7 +49,10 @@ let outText = 'mkdir randomMusic\n';
 		}	
 	});
 	
-	allmusic = allmusic.shuffle()
+	//allmusic = allmusic.shuffle()
+	shuffleArray(allmusic);
+	shuffleArray(allmusic);
+	shuffleArray(allmusic);
 	//console.log(allmusic); 
 	//console.log(allmusic.length); 
 	let arr = []
@@ -52,7 +61,7 @@ let outText = 'mkdir randomMusic\n';
 		j=i;		
 		//console.log(i,x); 
 		arr.push(x)
-		if (i%100===0 && i>0){
+		if (i%divider === 0 && i>0){
 			//console.log(i,arr.length)
 			zapisz(arr,i)
 			arr.length=0;
@@ -63,12 +72,15 @@ let outText = 'mkdir randomMusic\n';
 	
 	
 	function zapisz(arr,i){
-		outText += "mkdir .\\randomMusic\\"+i+"\n";
+		outText += "\nmkdir .\\"+globalpath+"\\"+i+"\n";
 		//console.log('===============');
 		console.log(i);
 		//console.log(arr.join('\n'));
 		arr.forEach(function(f){
-			outText += 'copy "'+f+'" .\\randomMusic\\'+i+'\n';
+			let o = f.split('\\').pop();
+			o = o.replace(/[^a-zA-Z0-9]/g,'-');	// dzikie znaki na myślnik
+			o = o.replace(/\-+/g, '-');			// wiele myslników na jeden
+			outText += 'copy "'+f+'" ".\\'+globalpath+'\\'+i+'\\'+o+'" /Y\n';
 		})
 		
 	}
@@ -77,11 +89,13 @@ let outText = 'mkdir randomMusic\n';
 			console.log(outText);
 		console.log('===============');
 		
-fs.writeFile("randomfiles.bat", outText, function(err) {
+fs.writeFile(batFile, outText, function(err) {
     if(err) {
         return console.log(err);
     }
-
-    console.log("The file was saved!");
+	console.log(' - - - - - - - - - - - - - - - - - - - - - - - - - - - - -');
+    console.log(' The file was saved to => '+globalpath+' => '+batFile);
+	console.log(' - - - - - - - - - - - - - - - - - - - - - - - - - - - - -');
+	console.log(' - - - - - - - - - - - - - - - - - - - - - - - - - - - - -');
 }); 		
 		
