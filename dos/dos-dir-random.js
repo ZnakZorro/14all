@@ -11,11 +11,26 @@ Array.prototype.shuffle=function(){
    return this;
 }
 
+	function readDirs(pat){
+		pat = pat || '.';
+		let out=[];
+		let directoryPath = path.join(__dirname, pat);
+		let dires = fs.readdirSync(directoryPath)
+		//console.log(dires)
+		dires.forEach(function(path){
+			let stat = fs.statSync(path);
+			if (stat.isDirectory(path)) {
+				out.push(path);
+			}
+		});
+		return out;
+	}
 
+/*****************************/
 
-let musicdirs = ['1-VocalLegends','2-JazzBallads'];
-var allmusic=[];
-
+let musicdirs = readDirs();//['1-VocalLegends','2-JazzBallads'];
+let allmusic=[];
+let outText = 'mkdir randomMusic\n';
 
 	musicdirs.forEach(function(dir){
 		let directoryPath = path.join(__dirname, dir);
@@ -36,7 +51,7 @@ var allmusic=[];
 		j=i;		
 		//console.log(i,x); 
 		arr.push(x)
-		if (i%100===0){
+		if (i%100===0 && i>0){
 			//console.log(i,arr.length)
 			zapisz(arr,i)
 			arr.length=0;
@@ -45,8 +60,27 @@ var allmusic=[];
 	zapisz(arr,j)
 	
 	
+	
 	function zapisz(arr,i){
-		console.log('===============');
+		outText += "mkdir .\\randomMusic\\"+i+"\n";
+		//console.log('===============');
 		console.log(i);
-		console.log(arr.join('\n'));
+		//console.log(arr.join('\n'));
+		arr.forEach(function(f){
+			outText += 'copy "'+f+'" .\\randomMusic\\'+i+'\n';
+		})
+		
 	}
+	
+		console.log('===============');
+			console.log(outText);
+		console.log('===============');
+		
+fs.writeFile("randomfiles.bat", outText, function(err) {
+    if(err) {
+        return console.log(err);
+    }
+
+    console.log("The file was saved!");
+}); 		
+		
