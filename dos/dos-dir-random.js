@@ -28,6 +28,8 @@ Array.prototype.shuffle=function(){
 		return out;
 	}
 
+	
+/*****************************/
 /*****************************/
 let divider    = 100;
 let globalpath = 'randomMusic';
@@ -70,7 +72,6 @@ let outText = 'mkdir '+globalpath+'\n';
 	zapisz(arr,j)
 	
 	
-	
 	function zapisz(arr,i){
 		outText += "\nmkdir .\\"+globalpath+"\\"+i+"\n";
 		//console.log('===============');
@@ -78,24 +79,28 @@ let outText = 'mkdir '+globalpath+'\n';
 		//console.log(arr.join('\n'));
 		arr.forEach(function(f){
 			let o = f.split('\\').pop();
-			o = o.replace(/[^a-zA-Z0-9]/g,'-');	// dzikie znaki na myślnik
+			o = o.replace(/[^a-zA-Z0-9\.]/g,'-');	// dzikie znaki na myślnik
 			o = o.replace(/\-+/g, '-');			// wiele myslników na jeden
+			o = o.replace('-.', '.');			// 
 			outText += 'copy "'+f+'" ".\\'+globalpath+'\\'+i+'\\'+o+'" /Y\n';
 		})
 		
 	}
+
 	
-		console.log('===============');
-			console.log(outText);
-		console.log('===============');
-		
+console.log('===============');
+	console.log(outText);
+console.log('===============');
+
+
 fs.writeFile(batFile, outText, function(err) {
-    if(err) {
-        return console.log(err);
-    }
+	if(err) {
+		return console.log(err);
+	}
 	console.log(' - - - - - - - - - - - - - - - - - - - - - - - - - - - - -');
-    console.log(' The file was saved to => '+globalpath+' => '+batFile);
+	console.log(' The file was saved to => '+globalpath+' => '+batFile);
 	console.log(' - - - - - - - - - - - - - - - - - - - - - - - - - - - - -');
 	console.log(' - - - - - - - - - - - - - - - - - - - - - - - - - - - - -');
-}); 		
-		
+});
+
+
