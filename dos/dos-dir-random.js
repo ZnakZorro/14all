@@ -33,7 +33,7 @@ let allmusic=[];
 let outText = 'mkdir randomMusic\n';
 
 	musicdirs.forEach(function(dir){
-		if (dir.toUpperCase() != 'ZAPAS'){
+		if (dir.toUpperCase() != 'ZAPAS' || dir.toUpperCase() != 'RANDOMMUSIC'){
 			let directoryPath = path.join(__dirname, dir);
 			let files = fs.readdirSync(directoryPath)
 			let pliki = files.map(function(f) {
