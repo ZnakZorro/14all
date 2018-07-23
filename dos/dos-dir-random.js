@@ -33,14 +33,15 @@ let allmusic=[];
 let outText = 'mkdir randomMusic\n';
 
 	musicdirs.forEach(function(dir){
-		let directoryPath = path.join(__dirname, dir);
-		let files = fs.readdirSync(directoryPath)
-		
-		let pliki = files.map(function(f) {
-			return directoryPath+"\\"+f;
-		});			
-			allmusic = allmusic.concat(pliki);
-	} );
+		if (dir.toUpperCase() != 'ZAPAS'){
+			let directoryPath = path.join(__dirname, dir);
+			let files = fs.readdirSync(directoryPath)
+			let pliki = files.map(function(f) {
+				return directoryPath+"\\"+f;
+			});			
+		allmusic = allmusic.concat(pliki);
+		}	
+	});
 	
 	allmusic = allmusic.shuffle()
 	//console.log(allmusic); 
