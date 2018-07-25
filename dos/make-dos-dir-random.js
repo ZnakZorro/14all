@@ -32,8 +32,8 @@ Array.prototype.shuffle=function(){
 /*****************************/
 /*****************************/
 let divider    = 100;
-let globalpath = 'randomMusic';
-let batFile    = 'randomfiles.bat';
+let globalpath = '@randomMusic';
+let batFile    = 'copyrandomfiles.bat';
 /*****************************/
 
 let musicdirs = readDirs();//['1-VocalLegends','2-JazzBallads'];
