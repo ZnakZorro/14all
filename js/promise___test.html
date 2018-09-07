@@ -1,0 +1,30 @@
+
+
+<script>
+
+async function translate(word){
+	return word+' '+word;
+}
+
+async function preparuj(word) {
+
+  let promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve(translate(word)), 1000)
+  });
+
+  let result = await promise;
+	return result;
+  //console.log(result);
+}
+
+
+preparuj('abc').then(function(x){
+	console.log(x)
+}); // 1
+
+preparuj('xyz').then(function(x){
+	console.log(x)
+}); // 1
+
+
+</script>
