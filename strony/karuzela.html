@@ -1,0 +1,116 @@
+<html lang="pl"> 
+<head> 
+<meta charset="utf-8"> 
+<meta http-equiv="refresh" content="3600">
+	<title>Karuaela</title> 
+	<meta name="viewport" content="width=device-width,initial-scale=1"> 
+	<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+	<meta name="mobile-web-app-capable" content="yes"> 
+	<link rel="icon" type="image/png" size="128x128" href="../img/9squares.png">
+<style>
+body {
+    font-size: xx-large;
+    margin: 0;
+    padding: 0;
+}
+.carousel-container {
+    position: relative;
+    width: 480px;
+    height: 320px;
+    border: 1px solid #eee;
+    margin:auto;
+}
+
+.gallery {
+    position: relative;
+    width: 100%;
+}
+.gallery >div {
+    position: absolute;
+    height: 320px;
+    width: 100%;
+    opacity: 0;
+}
+
+.slider-controls {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    font-size: 33vh;
+    line-height: 0;
+    font-weight: bold;
+    transform: scaleY(2);
+    color: white;
+    opacity: 0.0;
+}
+img {
+    width: 100%;
+    height: 100%;
+}
+/*-1-*/
+#slide1:checked ~ .slider-controls > label:nth-child(2)::after{content: '>'; float:right;}
+#slide1:checked ~ .slider-controls > label:nth-child(5)::after{content: '<';float:left;}
+/*-2-*/
+#slide2:checked ~ .slider-controls > label:nth-child(3)::after{content: '>'; float:right;}
+#slide2:checked ~ .slider-controls > label:nth-child(1)::after{content: '<'; float:left;}
+/*-3-*/
+#slide3:checked ~ .slider-controls > label:nth-child(4)::after{content: '>'; float:right; }
+#slide3:checked ~ .slider-controls > label:nth-child(2)::after{content: '<'; float:left;}
+/*-4-*/
+#slide4:checked ~ .slider-controls > label:nth-child(5)::after{content: '>'; float:right;}
+#slide4:checked ~ .slider-controls > label:nth-child(3)::after{content: '<'; float:left; }
+/*-5-*/
+#slide5:checked ~ .slider-controls > label:nth-child(1)::after{content: '>'; float:right; }
+#slide5:checked ~ .slider-controls > label:nth-child(4)::after{content: '<'; float:left;}
+
+#slide1:checked ~ .gallery > div:nth-child(1),
+#slide2:checked ~ .gallery > div:nth-child(2),
+#slide3:checked ~ .gallery > div:nth-child(3),
+#slide4:checked ~ .gallery > div:nth-child(4),
+#slide5:checked ~ .gallery > div:nth-child(5){opacity: 1;}
+
+.red{background-color: red}
+.blu{background-color: blue}
+.yel{background-color: yellow}
+.gre{background-color: green}
+.gol{background-color: gold}
+        
+input[type="radio" i] {display:none;}        
+        
+        
+        </style>
+    </head>
+    <body>
+            <div class="carousel-container">
+
+                <input checked type="radio" name='control' id="slide1"  class="carousel-control-radio">
+                <input type="radio" name='control' id="slide2"  class="carousel-control-radio">
+                <input type="radio" name='control' id="slide3"  class="carousel-control-radio">
+                <input type="radio" name='control' id="slide4"  class="carousel-control-radio">
+                <input type="radio" name='control' id="slide5"  class="carousel-control-radio">
+
+                <div class="gallery">
+                <div class="red"><img src="/galeria/foto2/Teren_2018_04_22-010.jpg"/></div>
+                <div class="blu"><img src="/galeria/foto2/Teren_2018_04_22-028.jpg"/></div>
+                <div class="yel"><img src="/galeria/foto2/Teren_2018_04_22-029.jpg"/></div>
+                <div class="gre"><img src="/galeria/foto2/Teren_2018_04_22-030.jpg"/></div>
+                <div class="gol"><img src="/galeria/foto2/Teren_2018_04_22-031.jpg"/></div>
+
+            </div>
+            <div class="slider-controls">
+                <label for="slide1"></label>
+                <label for="slide2"></label>
+                <label for="slide3"></label>
+                <label for="slide4"></label>
+                <label for="slide5"></label>
+                </div>
+            </div>
+    </body>
+</html>
+<!--
+https://www.codeproject.com/Articles/1264486/Infinte-Scrolling-Carousel-using-CSS
+<p>I will display &#8920;</p>
+<p>I will display &#x22D8;</p>
+<p>I will display &#8921;</p>
+<p>I will display &#x22D9;</p>
+-->
