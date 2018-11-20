@@ -1,5 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *");
+header('Content-type: application/json');
 $query = explode('&',$_SERVER['QUERY_STRING']);
 //print("<pre>");print_r($query);print("</pre>");
 $raw_data = file_get_contents($query[0]);
