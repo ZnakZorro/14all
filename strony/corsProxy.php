@@ -1,10 +1,10 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header('Content-type: application/json');
 $query = explode('&',$_SERVER['QUERY_STRING']);
 //print("<pre>");print_r($query);print("</pre>");
 $raw_data = file_get_contents($query[0]);
 if (isset($query[1])) echo $query[1].'(';
+if (isset($query[1])) header('Content-type: application/javascript'); else header('Content-type: application/json');
 if(substr($raw_data, 0, 15) == "<methodResponse" || substr($raw_data, 0, 5) == "<?xml"){
   $xml = simplexml_load_string($raw_data);
   $json = json_encode($xml);
@@ -15,6 +15,6 @@ if(substr($raw_data, 0, 15) == "<methodResponse" || substr($raw_data, 0, 5) == "
 if (isset($query[1])) echo ')';
 
 //exemples:
-//https://zszczech.zut.edu.pl/app/DOM/jsons/corsProxy.php?https://www.yr.no/place/Poland/West_Pomerania/Szczecin/forecast_hour_by_hour.xml
-//https://zszczech.zut.edu.pl/app/DOM/jsons/corsProxy.php?https://www.yr.no/place/Poland/West_Pomerania/Szczecin/forecast_hour_by_hour.xml&callback
+//https://.../corsProxy.php?https://www.yr.no/place/Poland/West_Pomerania/Szczecin/forecast_hour_by_hour.xml
+//https://.../corsProxy.php?https://www.yr.no/place/Poland/West_Pomerania/Szczecin/forecast_hour_by_hour.xml&callback
 ?>
